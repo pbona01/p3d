@@ -44,12 +44,12 @@ export default function App() {
           className="flex items-center gap-3 z-50"
         >
           <img 
-            src="https://i.postimg.cc/7Ys6cT7H/626259213-18378549319092128-1639774426487749224-n.jpg" 
-            alt="P3D Art Logo" 
+            src="https://i.postimg.cc/N0w5D1Gv/Screenshot-20260522-142444-Tik-Tok.jpg" 
+            alt="Aplund Company Logo" 
             className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border border-white/10"
             referrerPolicy="no-referrer"
           />
-          <span className="font-sans font-bold text-lg md:text-xl tracking-tight">P3D ART</span>
+          <span className="font-sans font-bold text-lg md:text-xl tracking-tight">APLUND</span>
         </motion.div>
 
         {/* Desktop Nav */}
@@ -106,7 +106,7 @@ export default function App() {
         {/* Background Image with Blur and Fade */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://i.postimg.cc/26RFZt8X/549034574-18524987185053760-3659918987799525634-n.jpg" 
+            src="https://i.postimg.cc/pLQ223xr/Screenshot-20260522-142556-Tik-Tok.jpg" 
             alt="Hero Background" 
             className="w-full h-full object-cover blur-[8px] opacity-40 scale-110"
             referrerPolicy="no-referrer"
@@ -118,7 +118,7 @@ export default function App() {
 
         {/* Content */}
         <div className="relative z-10 max-w-3xl mt-10 md:mt-0">
-          <h2 className="sr-only">Custom wall art Lagos, anime frames Nigeria, pop art rugs</h2>
+          <h2 className="sr-only">Insta Mirror available for orders, neon mirrors, custom designs Mushin Fadeyi</h2>
           
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -127,7 +127,7 @@ export default function App() {
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-neon-orange/30 bg-neon-orange/10 text-neon-orange text-xs font-bold uppercase tracking-wider w-fit mb-6 backdrop-blur-md"
           >
             <span className="w-2 h-2 rounded-full bg-neon-orange animate-pulse"></span>
-            Premium Custom Studio
+            Designs For Impact
           </motion.div>
 
           <motion.h1 
@@ -136,7 +136,7 @@ export default function App() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tighter mb-6"
           >
-            Custom Art That Turns Your Space Into <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-orange to-neon-red">Culture</span>
+            Custom Mirrors That Design For <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-orange to-neon-red">Impact</span>
           </motion.h1>
 
           <motion.p 
@@ -145,7 +145,7 @@ export default function App() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="text-base sm:text-lg md:text-xl text-gray-300 max-w-xl mb-8 md:mb-10 leading-relaxed"
           >
-            Premium handcrafted wall frames, rugs, and tables inspired by pop art, anime, and street culture.
+            Premium handcrafted Insta Mirrors, glowing neon silhouettes, and statement mirrors. Delivered nationwide. Call/WhatsApp: 07070276427
           </motion.p>
 
           <motion.div 
@@ -176,12 +176,12 @@ export default function App() {
             className="mt-12 md:mt-16 flex items-center gap-6 md:gap-8 border-t border-white/10 pt-8 max-w-xl"
           >
             <div>
-              <p className="font-sans font-bold text-xl md:text-2xl text-white">200+</p>
-              <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider mt-1">Custom Pieces</p>
+              <p className="font-sans font-bold text-xl md:text-2xl text-white">1000+</p>
+              <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider mt-1">Custom Mirrors</p>
             </div>
             <div className="w-px h-8 md:h-10 bg-white/10"></div>
             <div>
-              <p className="font-sans font-bold text-xl md:text-2xl text-white">Lagos</p>
+              <p className="font-sans font-bold text-xl md:text-2xl text-white">Mushin Fadeyi</p>
               <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider mt-1">Based Studio</p>
             </div>
           </motion.div>
@@ -203,9 +203,9 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {[
-              { title: "Wall Frames", desc: "Anime & Pop Culture Canvas", img: "https://i.postimg.cc/VLGqRvkd/547967041-18524987146053760-860898764929027416-n.jpg" },
-              { title: "Custom Rugs", desc: "Hand-tufted Statement Pieces", img: "https://i.postimg.cc/9fFjjxjK/551798099-18356694184092128-8107893003687423280-n.jpg" },
-              { title: "Street Tables", desc: "Resin & Wood Art Tables", img: "https://i.postimg.cc/J4WvLTNF/547795956-18355393171092128-6771072573950377084-n.jpg" }
+              { title: "Insta Mirrors", desc: "Life-sized Smartphone Mirrors", img: "https://i.postimg.cc/N0w5D1Gv/Screenshot-20260522-142444-Tik-Tok.jpg" },
+              { title: "Neon Silhouettes", desc: "Character & Pop Art LEDs", img: "https://i.postimg.cc/rmfsq31y/Screenshot-20260522-142514-Tik-Tok.jpg" },
+              { title: "Wavy Aesthetics", desc: "Modern Glowing Edges", img: "https://i.postimg.cc/ZKBnhf02/Screenshot-20260522-142551-Tik-Tok.jpg" }
             ].map((item, i) => (
               <motion.div 
                 key={i}
@@ -234,7 +234,7 @@ export default function App() {
           transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
           className="flex items-center gap-8 font-sans font-black text-xl md:text-2xl text-black uppercase tracking-widest"
         >
-          {Array(10).fill("CUSTOM FRAMES • POP ART • STREET CULTURE • LAGOS • ").map((text, i) => (
+          {Array(10).fill("INSTA MIRRORS • CUSTOM LED • DESIGNS FOR IMPACT • NATIONWIDE DELIVERY • ").map((text, i) => (
             <span key={i}>{text}</span>
           ))}
         </motion.div>
@@ -250,10 +250,10 @@ export default function App() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              { img: "https://i.postimg.cc/9fFjjxjK/551798099-18356694184092128-8107893003687423280-n.jpg", span: "col-span-2 row-span-2" },
-              { img: "https://i.postimg.cc/J4WvLTNF/547795956-18355393171092128-6771072573950377084-n.jpg", span: "col-span-2 md:col-span-1 row-span-1" },
-              { img: "https://i.postimg.cc/26RFZt8X/549034574-18524987185053760-3659918987799525634-n.jpg", span: "col-span-2 md:col-span-1 row-span-1" },
-              { img: "https://i.postimg.cc/VLGqRvkd/547967041-18524987146053760-860898764929027416-n.jpg", span: "col-span-2 row-span-1" }
+              { img: "https://i.postimg.cc/pLQ223xr/Screenshot-20260522-142556-Tik-Tok.jpg", span: "col-span-2 row-span-2" },
+              { img: "https://i.postimg.cc/N0w5D1Gv/Screenshot-20260522-142444-Tik-Tok.jpg", span: "col-span-2 md:col-span-1 row-span-1" },
+              { img: "https://i.postimg.cc/ZKBnhf02/Screenshot-20260522-142551-Tik-Tok.jpg", span: "col-span-2 md:col-span-1 row-span-1" },
+              { img: "https://i.postimg.cc/rmfsq31y/Screenshot-20260522-142514-Tik-Tok.jpg", span: "col-span-2 row-span-1" }
             ].map((item, i) => (
               <motion.div 
                 key={i}
@@ -292,8 +292,8 @@ export default function App() {
 
             {[
               { icon: Palette, title: "1. The Vision", desc: "Share your idea, reference images, or let our artists design something completely unique for you." },
-              { icon: Hammer, title: "2. The Craft", desc: "Our Lagos-based artisans handcraft your piece using premium materials, resin, and tufting techniques." },
-              { icon: Truck, title: "3. The Culture", desc: "Securely packaged and delivered straight to your door, ready to elevate your space." }
+              { icon: Hammer, title: "2. The Craft", desc: "Our Mushin Fadeyi artisans cut, frame, and wire your custom mirror with high-quality LEDs and reflective glass." },
+              { icon: Truck, title: "3. The Culture", desc: "Securely packaged and delivered straight to your door, ready to elevate your space anywhere nationwide." }
             ].map((step, i) => (
               <motion.div 
                 key={i}
@@ -364,12 +364,12 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-3">
             <img 
-              src="https://i.postimg.cc/7Ys6cT7H/626259213-18378549319092128-1639774426487749224-n.jpg" 
-              alt="P3D Art Logo" 
+              src="https://i.postimg.cc/N0w5D1Gv/Screenshot-20260522-142444-Tik-Tok.jpg" 
+              alt="Aplund Logo" 
               className="w-8 h-8 rounded-full object-cover border border-white/10"
               referrerPolicy="no-referrer"
             />
-            <span className="font-sans font-bold text-lg tracking-tight">P3D ART</span>
+            <span className="font-sans font-bold text-lg tracking-tight">APLUND</span>
           </div>
           
           <div className="flex items-center gap-6 text-sm text-gray-400">
@@ -388,7 +388,7 @@ export default function App() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto text-center mt-12 text-xs text-gray-600">
-          &copy; {new Date().getFullYear()} P3D Art Studio. All rights reserved.
+          &copy; {new Date().getFullYear()} Aplund Company. All rights reserved.
         </div>
       </footer>
     </div>

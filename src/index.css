@@ -6,6 +6,12 @@
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
   --color-neon-orange: #ff4500;
   --color-neon-red: #ff003c;
+  --color-gold: #c5a880;
+  --color-gold-hover: #bda030;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

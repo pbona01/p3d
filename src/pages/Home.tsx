@@ -1,296 +1,417 @@
-import React from "react";
-import { motion } from "motion/react";
-import { Link } from "react-router-dom";
-import { ArrowRight, Play, Award, Briefcase, Sparkles, MapPin } from "lucide-react";
-import { projects } from "../lib/projects-data";
+import React from 'react';
+import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Sparkles, ShieldCheck, Ruler, Wrench, MessageSquare, CheckCircle, Lock, Star } from 'lucide-react';
+import { ProductGrid } from '../components/products/ProductGrid';
+import { productsData, OFFICIAL_WHATSAPP_NUMBER } from '../lib/products-data';
 
 export const Home: React.FC = () => {
-  // Take first 3 projects as a teaser
-  const featuredProjects = projects.slice(0, 3);
+  const featuredProducts = productsData.filter(p => p.featured);
 
   return (
-    <div className="relative min-h-screen bg-[#050505] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#FAF9F6] text-[#18181B] font-sans selection:bg-[#E54827] selection:text-white">
       
-      {/* Main Hero Section */}
-      <section className="relative flex flex-col justify-center min-h-screen px-6 md:px-12 lg:px-24 pt-32 pb-20 overflow-hidden">
-        {/* Background Image with Blur and Fade */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://i.postimg.cc/pLQ223xr/Screenshot-20260522-142556-Tik-Tok.jpg" 
-            alt="Fitted dual-tone modern wardrobes backplane" 
-            className="w-full h-full object-cover blur-[8px] opacity-40 scale-110"
-            referrerPolicy="no-referrer"
-          />
-          {/* Gradient fade to background color (#050505) */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#050505]/80 to-[#050505]"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-transparent opacity-80"></div>
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 max-w-3xl mt-10 md:mt-0">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold text-xs font-bold uppercase tracking-wider w-fit mb-6 backdrop-blur-md"
-          >
-            <span className="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-            Designs For Impact
-          </motion.div>
-
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tighter mb-6"
-          >
-            Aplund Wardrobes & <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white">Mirrors</span>
-          </motion.h1>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-base sm:text-lg md:text-xl text-gray-300 max-w-xl mb-8 md:mb-10 leading-relaxed"
-          >
-            Hand-crafted in Lagos | Shipping Nationwide & Ghana
-          </motion.p>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col sm:flex-row items-center gap-4"
-          >
-            <Link 
-              to="/portfolio"
-              className="group relative w-full sm:w-auto flex items-center justify-center gap-2 bg-gold text-black px-8 py-4 rounded-full font-bold text-sm tracking-wide overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(197,168,128,0.4)]"
+      {/* --- HERO SECTION --- */}
+      <section className="relative pt-8 pb-12 md:pt-14 md:pb-16 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          {/* Hero Left Column */}
+          <div className="lg:col-span-6 space-y-5 text-left">
+            <motion.p
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-xs font-extrabold uppercase tracking-widest text-[#E54827]"
             >
-              <span className="relative z-10">Explore Our Work</span>
-              <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            
-            <Link 
-              to="/contact"
-              className="group w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-full font-bold text-sm tracking-wide border border-white/20 hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-md"
+              Aplund Atelier · Lagos
+            </motion.p>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#18181B] leading-[1.1]"
             >
-              <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-black/10 transition-colors">
-                <Play className="w-3 h-3 ml-0.5" />
-              </div>
-              Request a Quote
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+              Crafted for your space.
+            </motion.h1>
 
-      {/* Trust Bar Section */}
-      <section className="relative z-10 py-8 border-y border-gold/20 bg-black/50 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center md:text-left">
-            {[
-              { label: "15+ Years Experience", icon: Award, stat: "15+ Years" },
-              { label: "500+ Projects Fitted", icon: Briefcase, stat: "500+ Built" },
-              { label: "100% Bespoke Designs", icon: Sparkles, stat: "Bespoke" },
-              { label: "Lagos Workshop", icon: MapPin, stat: "Local Craft" }
-            ].map((item, idx) => (
-              <div key={idx} className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-3 md:gap-4">
-                <div className="p-3 rounded-full bg-gold/10 border border-gold/20 flex-shrink-0">
-                  <item.icon className="w-5 h-5 text-gold" />
-                </div>
-                <div>
-                  <h4 className="font-sans font-bold text-white text-sm md:text-base leading-tight">{item.label}</h4>
-                  <p className="text-[10px] md:text-xs text-gold font-semibold uppercase tracking-widest mt-0.5">{item.stat}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Curated Portfolio Preview */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-24 bg-black/40">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div>
-              <h2 className="font-sans text-3xl md:text-5xl font-black mb-4">Featured <span className="text-gold">Creations</span></h2>
-              <p className="text-gray-400 max-w-md">Get a glimpse of our handcrafted furniture fitted inside Nigeria’s finest properties.</p>
-            </div>
-            <Link 
-              to="/portfolio"
-              className="text-gold font-bold text-sm tracking-wider uppercase inline-flex items-center gap-2 hover:underline cursor-pointer group"
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+              className="text-[#52525B] text-base sm:text-lg font-normal max-w-lg"
             >
-              View Full Portfolio <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
+              Custom LED mirrors, fitted wardrobes, and physical savings boxes.
+            </motion.p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {featuredProjects.map((project, i) => (
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                key={project.title}
-                className="group relative h-[360px] rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-end"
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="pt-1 flex flex-wrap items-center gap-3"
+            >
+              <Link
+                to="/shop"
+                className="bg-[#E54827] hover:bg-[#C22E14] text-white font-bold px-7 py-3.5 rounded-full transition-all text-xs uppercase tracking-wider flex items-center gap-2 shadow-md cursor-pointer"
               >
-                <img 
-                  src={project.img} 
-                  alt={`${project.title} - Custom handcrafted piece`} 
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 z-0" 
-                  referrerPolicy="no-referrer" 
+                Shop Now <ArrowRight className="w-4 h-4" />
+              </Link>
+
+              <Link
+                to="/contact"
+                className="bg-white hover:bg-[#F4F3EF] text-[#18181B] border border-[#E4E4E7] font-bold px-7 py-3.5 rounded-full transition-all text-xs uppercase tracking-wider cursor-pointer shadow-sm"
+              >
+                Get Custom Quote
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Hero Right Column: Clean Editorial Showcase */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            className="lg:col-span-6"
+          >
+            <div className="relative rounded-2xl overflow-hidden border border-[#E4E4E7] shadow-sm bg-white p-2">
+              <div className="relative aspect-[4/3] sm:aspect-[16/11] rounded-xl overflow-hidden">
+                <img
+                  src="https://i.postimg.cc/vB2PqNnm/a5164097-dd7b-4477-ae33-c34845983535.jpg"
+                  alt="Aura Mirror by Aplund"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent z-10"></div>
-                <div className="relative p-6 z-20">
-                  <span className="px-2.5 py-0.5 rounded-full border border-gold/30 bg-gold/10 text-gold text-[9px] font-bold uppercase tracking-wider w-fit block mb-2">
-                    {project.category}
-                  </span>
-                  <h3 className="font-sans text-lg font-bold mb-1 text-white group-hover:text-gold transition-colors">{project.title}</h3>
-                  <p className="text-gray-400 text-xs mb-3 line-clamp-1">{project.desc}</p>
-                  <Link to="/portfolio" className="text-[10px] font-bold uppercase tracking-widest text-gold inline-flex items-center gap-1">
-                    Details <ArrowRight className="w-3 h-3" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                
+                <div className="absolute bottom-4 left-4 right-4 p-3.5 bg-white/95 backdrop-blur-md rounded-xl border border-white/50 shadow-md flex items-center justify-between gap-3">
+                  <div>
+                    <h3 className="text-[#18181B] font-bold text-sm">The Ultimate Aura Mirror</h3>
+                    <p className="text-xs text-[#52525B]">Custom sizing & LED backlighting</p>
+                  </div>
+                  <Link
+                    to="/product/ultimate-aura-mirror"
+                    className="bg-[#E54827] hover:bg-[#C22E14] text-white px-3.5 py-2 rounded-lg font-bold text-xs shrink-0 flex items-center gap-1"
+                  >
+                    View <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </section>
 
-      {/* Our Process Section */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-24 bg-black/60 border-t border-white/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="font-sans text-3xl md:text-5xl font-black mb-2 tracking-tight">How We <span className="text-gold">Work</span></h2>
-            <div className="w-24 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
-            <p className="text-gray-400 max-w-lg mx-auto mt-6">From consultation to installation, we handcraft premium tailored furniture to make your home uniquely yours.</p>
-          </div>
+      {/* --- CATEGORY NAVIGATION --- */}
+      <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto border-t border-[#E4E4E7]">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs text-[#E54827] uppercase tracking-widest font-bold">
+            Curated Collections
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-black mt-1 text-[#18181B]">Shop By Category</h2>
+          <p className="text-[#52525B] text-sm mt-2">
+            Discover custom mirrors, tailored fitted wardrobes, and our physical savings box.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative mb-16">
-            {/* Connecting line for desktop */}
-            <div className="hidden md:block absolute top-8 left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-transparent via-gold/30 to-transparent z-0"></div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          
+          {/* Category 1: Mirrors */}
+          <Link
+            to="/shop/mirrors"
+            className="group relative bg-white rounded-3xl overflow-hidden border border-[#E4E4E7] hover:border-[#E54827] transition-all duration-300 shadow-sm hover:shadow-md block"
+          >
+            <div className="aspect-[4/3] overflow-hidden bg-[#F4F3EF]">
+              <img
+                src="https://i.postimg.cc/d04n3x4h/f8e41194-bf0b-4826-8a41-4076e72b6095.jpg"
+                alt="Custom Mirrors Collection"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-6 space-y-2">
+              <span className="text-[10px] text-[#E54827] font-mono font-bold uppercase tracking-wider">01 / Category</span>
+              <h3 className="text-xl font-bold text-[#18181B] group-hover:text-[#E54827] transition-colors">Custom Mirrors</h3>
+              <p className="text-xs text-[#52525B] leading-relaxed">
+                Aura, Instagram, Snapchat & Wavy LED mirrors tailored for bedrooms and closets.
+              </p>
+              <div className="pt-2 text-xs font-bold text-[#E54827] flex items-center gap-1.5 group-hover:underline">
+                Explore Mirrors <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </div>
+          </Link>
 
-            {[
-              { num: "01", title: "CONSULTATION", desc: "We visit your space and understand your needs" },
-              { num: "02", title: "DESIGN", desc: "Custom drawings tailored to your room" },
-              { num: "03", title: "CRAFT", desc: "Hand-built in our Lagos workshop" },
-              { num: "04", title: "INSTALL", desc: "Fitted perfectly, down to the millimetre" }
-            ].map((step, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="relative flex flex-col items-center text-center z-10 group"
-              >
-                <div className="w-16 h-16 rounded-full bg-black border-2 border-gold flex items-center justify-center mb-6 relative z-10 font-sans font-black text-xl text-gold shadow-[0_0_20px_rgba(197,168,128,0.2)] group-hover:scale-110 transition-transform duration-300">
-                  {step.num}
-                </div>
-                <h3 className="font-sans text-base font-bold text-white mb-3 uppercase tracking-wider">{step.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed max-w-[200px]">{step.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+          {/* Category 2: Wardrobes */}
+          <Link
+            to="/shop/wardrobes"
+            className="group relative bg-white rounded-3xl overflow-hidden border border-[#E4E4E7] hover:border-[#E54827] transition-all duration-300 shadow-sm hover:shadow-md block"
+          >
+            <div className="aspect-[4/3] overflow-hidden bg-[#F4F3EF]">
+              <img
+                src="https://i.postimg.cc/pLQ223xr/Screenshot-20260522-142556-Tik-Tok.jpg"
+                alt="Custom Wardrobes Collection"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-6 space-y-2">
+              <span className="text-[10px] text-[#E54827] font-mono font-bold uppercase tracking-wider">02 / Category</span>
+              <h3 className="text-xl font-bold text-[#18181B] group-hover:text-[#E54827] transition-colors">Custom Wardrobes</h3>
+              <p className="text-xs text-[#52525B] leading-relaxed">
+                Fitted drip wardrobes & executive walk-in closets made to your wall measurements.
+              </p>
+              <div className="pt-2 text-xs font-bold text-[#E54827] flex items-center gap-1.5 group-hover:underline">
+                Request Wardrobe Quote <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </div>
+          </Link>
 
-          <div className="text-center">
-            <Link 
-              to="/contact"
-              className="px-8 py-4 bg-gold hover:bg-gold-hover text-black font-bold rounded-full text-sm tracking-wide transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(197,168,128,0.3)] inline-block"
-            >
-              Start Your Project
-            </Link>
-          </div>
+          {/* Category 3: The Vault */}
+          <Link
+            to="/vault"
+            className="group relative bg-white rounded-3xl overflow-hidden border border-[#E4E4E7] hover:border-[#E54827] transition-all duration-300 shadow-sm hover:shadow-md block"
+          >
+            <div className="aspect-[4/3] overflow-hidden bg-[#F4F3EF] relative">
+              <img
+                src="https://i.postimg.cc/pLQ223xr/Screenshot-20260522-142556-Tik-Tok.jpg"
+                alt="The Vault Physical Savings Box"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span className="absolute top-3 left-3 bg-[#E54827] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">
+                Signature Product
+              </span>
+            </div>
+            <div className="p-6 space-y-2">
+              <span className="text-[10px] text-[#E54827] font-mono font-bold uppercase tracking-wider">03 / Physical Box</span>
+              <h3 className="text-xl font-bold text-[#18181B] group-hover:text-[#E54827] transition-colors">The Vault</h3>
+              <p className="text-xs text-[#52525B] leading-relaxed">
+                Handcrafted solid hardwood savings box with heavy brass lock & web deposit tracker.
+              </p>
+              <div className="pt-2 text-xs font-bold text-[#E54827] flex items-center gap-1.5 group-hover:underline">
+                View The Vault (₦35,000) <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </div>
+          </Link>
+
         </div>
       </section>
 
-      {/* Introducing Aplund Savings Box Section */}
-      <section className="relative z-10 py-24 px-6 md:px-12 lg:px-24 bg-[#0a0a0a] border-t border-white/5 overflow-hidden">
-        {/* Background ambient gold radial glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#c9a96e]/5 blur-[120px] rounded-full pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Text Details */}
-          <div className="lg:col-span-7 space-y-6 text-left">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#c9a96e]/30 bg-[#c9a96e]/10 text-[#c9a96e] text-[10px] font-bold uppercase tracking-wider">
-              <Sparkles className="w-3 h-3 animate-pulse" /> New Launch
+      {/* --- FEATURED STORE SHOWCASE --- */}
+      <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto border-t border-[#E4E4E7]">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 gap-4">
+          <div>
+            <span className="text-xs text-[#E54827] uppercase tracking-widest font-bold">
+              Featured Creations
             </span>
-            
-            <h2 className="font-sans text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
-              Introducing the Handcrafted <br className="hidden md:inline" />
-              <span className="text-gold">Aplund Savings Box</span>
+            <h2 className="text-2xl sm:text-3xl font-black mt-1 text-[#18181B]">Store Showcase</h2>
+          </div>
+          <Link
+            to="/shop"
+            className="text-xs font-bold text-[#E54827] hover:underline flex items-center gap-1.5"
+          >
+            View All Products ({productsData.length}) <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
+        <ProductGrid products={featuredProducts} />
+      </section>
+
+      {/* --- TAILORED FITTING SERVICE PROCESS --- */}
+      <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto my-8 bg-[#F4F3EF] border border-[#E4E4E7] rounded-3xl">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs text-[#E54827] uppercase tracking-widest font-bold">
+            Tailored Fitting Service
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black mt-1 text-[#18181B]">How Custom Ordering Works</h2>
+          <p className="text-[#52525B] text-sm mt-2">
+            Simple and structured process for bespoke mirrors and wardrobes in Lagos.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="p-6 bg-white border border-[#E4E4E7] rounded-2xl space-y-3 shadow-sm">
+            <div className="w-9 h-9 rounded-xl bg-[#FEF2F0] text-[#E54827] flex items-center justify-center font-mono font-extrabold text-xs">
+              01
+            </div>
+            <h4 className="font-bold text-[#18181B] text-sm">Select Your Style</h4>
+            <p className="text-[#52525B] text-xs leading-relaxed">
+              Browse our catalog or share your reference photos for custom wardrobe or LED mirror layouts.
+            </p>
+          </div>
+
+          <div className="p-6 bg-white border border-[#E4E4E7] rounded-2xl space-y-3 shadow-sm">
+            <div className="w-9 h-9 rounded-xl bg-[#FEF2F0] text-[#E54827] flex items-center justify-center font-mono font-extrabold text-xs">
+              02
+            </div>
+            <h4 className="font-bold text-[#18181B] text-sm">Provide Dimensions</h4>
+            <p className="text-[#52525B] text-xs leading-relaxed">
+              Share exact wall dimensions or request a Lagos site measurement visit from our team.
+            </p>
+          </div>
+
+          <div className="p-6 bg-white border border-[#E4E4E7] rounded-2xl space-y-3 shadow-sm">
+            <div className="w-9 h-9 rounded-xl bg-[#FEF2F0] text-[#E54827] flex items-center justify-center font-mono font-extrabold text-xs">
+              03
+            </div>
+            <h4 className="font-bold text-[#18181B] text-sm">Confirm Design & Quote</h4>
+            <p className="text-[#52525B] text-xs leading-relaxed">
+              Review itemized specs, chosen lighting, finish, hardware, and instant WhatsApp quote.
+            </p>
+          </div>
+
+          <div className="p-6 bg-white border border-[#E4E4E7] rounded-2xl space-y-3 shadow-sm">
+            <div className="w-9 h-9 rounded-xl bg-[#FEF2F0] text-[#E54827] flex items-center justify-center font-mono font-extrabold text-xs">
+              04
+            </div>
+            <h4 className="font-bold text-[#18181B] text-sm">Crafted & Installed</h4>
+            <p className="text-[#52525B] text-xs leading-relaxed">
+              Our workshop builds your piece with precision and handles safe delivery and wall mounting.
+            </p>
+          </div>
+        </div>
+
+        <div className="text-center mt-10">
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-[#E54827] hover:bg-[#C22E14] text-white font-bold px-8 py-3.5 rounded-full text-xs uppercase tracking-wider transition-all shadow-md"
+          >
+            Start Your Custom Order <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
+      {/* --- THE VAULT EDITORIAL SPOTLIGHT (Selective Dark Section) --- */}
+      <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto my-12">
+        <div className="bg-[#18181B] text-white rounded-3xl p-8 md:p-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center shadow-xl">
+          
+          <div className="lg:col-span-7 space-y-5">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E54827]/40 bg-[#E54827]/15 text-[#E54827] text-xs font-bold uppercase tracking-wider">
+              <Lock className="w-3.5 h-3.5 text-[#E54827]" /> Physical Wooden Savings Box
+            </div>
+
+            <h2 className="text-2xl sm:text-4xl font-black text-white leading-tight">
+              Save Physically. <span className="text-[#E54827]">Track Progress Simply.</span>
             </h2>
-            
-            <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-              We believe daily rituals should be elegant. Meet our physical, hand-carved wooden lock boxes—meticulously crafted from Lagos’s finest hardwoods and equipped with personalized, secure digital tracking ledgers.
+
+            <p className="text-gray-300 text-sm md:text-base leading-relaxed font-light">
+              The Vault gives your personal savings a physical, handcrafted home in solid hardwood. Pair your physical wooden box with its dedicated manual web-based deposit tracker.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-              <div className="flex items-center gap-3 text-xs text-gray-400">
-                <div className="w-6 h-6 rounded-full bg-gold/10 flex items-center justify-center border border-gold/20 text-gold font-bold">✓</div>
-                <span>Premium Oak & Teak finishing</span>
+            <div className="space-y-2 text-xs text-gray-300 pt-1">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-[#E54827]" />
+                <span>Hand-carved solid oak & teak hardwood with heavy brass lock</span>
               </div>
-              <div className="flex items-center gap-3 text-xs text-gray-400">
-                <div className="w-6 h-6 rounded-full bg-gold/10 flex items-center justify-center border border-gold/20 text-gold font-bold">✓</div>
-                <span>Polished heavy brass locks</span>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-[#E54827]" />
+                <span>QR code plate linking directly to your private manual deposit ledger</span>
               </div>
-              <div className="flex items-center gap-3 text-xs text-gray-400">
-                <div className="w-6 h-6 rounded-full bg-gold/10 flex items-center justify-center border border-gold/20 text-gold font-bold">✓</div>
-                <span>Engraved secure QR tracking plate</span>
-              </div>
-              <div className="flex items-center gap-3 text-xs text-gray-400">
-                <div className="w-6 h-6 rounded-full bg-gold/10 flex items-center justify-center border border-gold/20 text-gold font-bold">✓</div>
-                <span>Private 4-digit security PIN ledger</span>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-[#E54827]" />
+                <span>Set personal target goals & monitor savings milestones easily</span>
               </div>
             </div>
 
-            <div className="pt-4">
-              <Link 
-                to="/save" 
-                className="inline-flex items-center justify-center px-8 py-4 bg-gold hover:bg-gold-hover text-black font-bold rounded-full text-sm tracking-wide transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(197,168,128,0.3)] cursor-pointer"
+            <div className="pt-3 flex flex-wrap gap-3">
+              <Link
+                to="/vault"
+                className="bg-[#E54827] hover:bg-[#C22E14] text-white font-bold px-7 py-3.5 rounded-full text-xs uppercase tracking-wider transition-all shadow-md"
               >
-                Learn More & Buy Box
+                View The Vault (₦35,000)
               </Link>
+
+              <a
+                href={`https://wa.me/${OFFICIAL_WHATSAPP_NUMBER.replace('+', '')}?text=Hello%20Aplund!%20I%20want%20to%20order%20The%20Vault%20Savings%20Box.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-3.5 rounded-full text-xs transition-all flex items-center gap-2"
+              >
+                <MessageSquare className="w-4 h-4 text-[#25D366]" /> Order via WhatsApp
+              </a>
             </div>
           </div>
 
-          {/* Interactive Visual/Image Box Mock */}
-          <div className="lg:col-span-5 relative">
-            <motion.div 
-              whileHover={{ rotateY: -10, rotateX: 5 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              style={{ transformStyle: "preserve-3d", perspective: 1000 }}
-              className="relative aspect-square max-w-[360px] mx-auto bg-gradient-to-tr from-[#121212] to-[#262626] border border-white/10 rounded-2xl p-8 shadow-2xl flex flex-col justify-between overflow-hidden group cursor-pointer"
+          <div className="lg:col-span-5">
+            <div className="p-6 bg-[#27272A] border border-[#3F3F46] rounded-2xl space-y-4">
+              <div className="flex justify-between items-center border-b border-[#3F3F46] pb-3">
+                <span className="text-xs text-gray-400 font-mono">VAULT SPECIFICATIONS</span>
+                <span className="text-xs text-[#E54827] font-bold font-mono">₦35,000</span>
+              </div>
+              <div className="space-y-2 text-xs text-gray-300">
+                <p><span className="text-gray-400">Material:</span> Solid Hardwood & Heavy Brass Lock</p>
+                <p><span className="text-gray-400">Dimensions:</span> 25cm x 18cm x 16cm</p>
+                <p><span className="text-gray-400">Capacity:</span> Holds up to ₦1.5M banknotes</p>
+                <p><span className="text-gray-400">Ledger Companion:</span> Included via QR Code</p>
+              </div>
+              <p className="text-[11px] text-gray-400 italic pt-2 border-t border-[#3F3F46] leading-relaxed">
+                * Note: Your recorded savings will be based on the deposits and withdrawals you enter manually. The Vault does not automatically detect the cash inside it.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* --- WHY APLUND CRAFTSMANSHIP --- */}
+      <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto border-t border-[#E4E4E7]">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs text-[#E54827] uppercase tracking-widest font-bold">
+            The Aplund Difference
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black mt-1 text-[#18181B]">Why Choose Our Atelier</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="p-7 bg-white border border-[#E4E4E7] rounded-3xl space-y-3.5 shadow-sm">
+            <div className="w-11 h-11 rounded-2xl bg-[#FEF2F0] flex items-center justify-center text-[#E54827]">
+              <Ruler className="w-5 h-5" />
+            </div>
+            <h3 className="text-lg font-bold text-[#18181B]">Uncompromising Sizing</h3>
+            <p className="text-[#52525B] text-xs leading-relaxed">
+              Every mirror and wardrobe is constructed to fit your wall space down to the millimeter, eliminating awkward gaps.
+            </p>
+          </div>
+
+          <div className="p-7 bg-white border border-[#E4E4E7] rounded-3xl space-y-3.5 shadow-sm">
+            <div className="w-11 h-11 rounded-2xl bg-[#FEF2F0] flex items-center justify-center text-[#E54827]">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
+            <h3 className="text-lg font-bold text-[#18181B]">High-Grade Materials</h3>
+            <p className="text-[#52525B] text-xs leading-relaxed">
+              We exclusively utilize 5mm copper-free HD glass, moisture-resistant boards, Blum hinges, and seasoned solid hardwoods.
+            </p>
+          </div>
+
+          <div className="p-7 bg-white border border-[#E4E4E7] rounded-3xl space-y-3.5 shadow-sm">
+            <div className="w-11 h-11 rounded-2xl bg-[#FEF2F0] flex items-center justify-center text-[#E54827]">
+              <Wrench className="w-5 h-5" />
+            </div>
+            <h3 className="text-lg font-bold text-[#18181B]">Lagos Craft & Installation</h3>
+            <p className="text-[#52525B] text-xs leading-relaxed">
+              Our local Lagos craft atelier handles everything from site measurement to professional wall mounting and electrical fitting.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* --- FINAL CTA --- */}
+      <section className="py-16 px-4 md:px-8 max-w-5xl mx-auto text-center">
+        <div className="bg-[#18181B] text-white rounded-3xl p-8 md:p-14 space-y-5 shadow-lg">
+          <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+            Ready To Elevate Your Interior Space?
+          </h2>
+          <p className="text-gray-300 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
+            Browse our catalog, customize your dimensions, or speak directly with our Lagos craft team on WhatsApp.
+          </p>
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+            <Link
+              to="/shop"
+              className="w-full sm:w-auto bg-[#E54827] hover:bg-[#C22E14] text-white font-bold px-8 py-3.5 rounded-full text-xs uppercase tracking-wider transition-all shadow-md"
             >
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(197,168,128,0.06)_0%,transparent_60%)] pointer-events-none"></div>
-              
-              <div className="flex justify-between items-center relative z-10">
-                <span className="font-mono text-[9px] text-[#c9a96e] border border-[#c9a96e]/30 px-2 py-0.5 rounded uppercase tracking-wider font-semibold">APLUND L.01</span>
-                <div className="w-3.5 h-3.5 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center"><div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div></div>
-              </div>
-
-              <div className="my-auto flex flex-col items-center justify-center space-y-4 relative z-10" style={{ transform: "translateZ(30px)" }}>
-                <div className="w-24 h-24 bg-gradient-to-b from-[#8f6e3c] to-[#4a3416] rounded-xl border border-gold/30 shadow-inner flex items-center justify-center relative">
-                  <div className="w-8 h-8 rounded-full bg-[#1c1204] flex items-center justify-center border border-gold/40 text-[#c9a96e] shadow-md">
-                    🔒
-                  </div>
-                  <div className="absolute inset-x-0 top-0 h-[1px] bg-white/20"></div>
-                </div>
-                <div className="text-center">
-                  <p className="text-sm font-bold text-white tracking-wide">Master Bedroom Vault</p>
-                  <p className="text-[10px] text-gray-500 font-mono mt-0.5">Lagos, NG • 100% Solid Oak</p>
-                </div>
-              </div>
-
-              <div className="flex justify-between items-end relative z-10" style={{ transform: "translateZ(10px)" }}>
-                <div>
-                  <p className="text-[9px] text-gray-500 uppercase tracking-widest font-semibold">Tracked Balance</p>
-                  <p className="text-base font-bold text-gold">₦450,000</p>
-                </div>
-                <div className="w-8 h-8 rounded bg-black/60 border border-white/10 flex items-center justify-center text-xs text-[#c9a96e] font-bold">
-                  QR
-                </div>
-              </div>
-            </motion.div>
+              Shop All Products
+            </Link>
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-3.5 rounded-full text-xs uppercase tracking-wider transition-all border border-white/20"
+            >
+              Request Custom Quote
+            </Link>
           </div>
         </div>
       </section>

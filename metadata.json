@@ -2,5 +2,7 @@
   "name": "Aplund Company",
   "description": "A Company that designs for impact. Insta Mirrors, Custom Neon Mirrors. We Deliver Nationwide.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

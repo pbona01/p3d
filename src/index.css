@@ -1,13 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-neon-orange: #ff4500;
-  --color-neon-red: #ff003c;
-  --color-gold: #c5a880;
-  --color-gold-hover: #bda030;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --color-brand-primary: #e54827;
+  --color-brand-primary-hover: #c22e14;
+  --color-brand-soft: #fef2f0;
+  --color-brand-accent: #d9381e;
+  --color-charcoal-dark: #18181b;
+  --color-charcoal-deep: #121214;
+  --color-warm-white: #faf9f6;
+  --color-warm-grey: #f4f3ef;
+  --color-warm-border: #e4e4e7;
 }
 
 html {
@@ -15,9 +20,10 @@ html {
 }
 
 body {
-  background-color: #050505;
-  color: #ffffff;
+  background-color: #faf9f6;
+  color: #18181b;
   overflow-x: hidden;
+  font-family: var(--font-sans);
 }
 
 .bg-noise {
@@ -28,19 +34,12 @@ body {
   height: 100vh;
   pointer-events: none;
   z-index: 50;
-  opacity: 0.04;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 .glow-accent {
-  background: radial-gradient(circle at center, rgba(255, 69, 0, 0.15) 0%, transparent 60%);
-}
-
-.text-gradient {
-  background: linear-gradient(to right, #ffffff, #a3a3a3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: radial-gradient(circle at center, rgba(229, 72, 39, 0.08) 0%, transparent 60%);
 }
 
 @keyframes shake {
@@ -52,4 +51,5 @@ body {
 .animate-shake {
   animation: shake 0.5s ease-in-out;
 }
+
 

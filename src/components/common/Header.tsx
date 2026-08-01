@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-[#52525B]">
+          <nav className="hidden lg:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-[#52525B]">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -61,36 +61,14 @@ export const Header: React.FC = () => {
             </NavLink>
 
             <NavLink
-              to="/shop/mirrors"
-              className={({ isActive }) =>
-                `hover:text-[#E54827] transition-colors py-1 ${
-                  isActive ? 'text-[#E54827] font-bold border-b-2 border-[#E54827]' : 'text-[#52525B]'
-                }`
-              }
-            >
-              Mirrors
-            </NavLink>
-
-            <NavLink
-              to="/shop/wardrobes"
-              className={({ isActive }) =>
-                `hover:text-[#E54827] transition-colors py-1 ${
-                  isActive ? 'text-[#E54827] font-bold border-b-2 border-[#E54827]' : 'text-[#52525B]'
-                }`
-              }
-            >
-              Wardrobes
-            </NavLink>
-
-            <NavLink
               to="/vault"
               className={({ isActive }) =>
-                `hover:text-[#E54827] transition-colors py-1 flex items-center gap-1 ${
+                `hover:text-[#E54827] transition-colors py-1 ${
                   isActive ? 'text-[#E54827] font-bold border-b-2 border-[#E54827]' : 'text-[#52525B]'
                 }`
               }
             >
-              The Vault
+              Vault
             </NavLink>
 
             <NavLink

@@ -13,6 +13,8 @@ import { ProductDetail } from './pages/ProductDetail';
 import { CartPage } from './pages/CartPage';
 import { CheckoutPage } from './pages/CheckoutPage';
 import { VaultPage } from './pages/VaultPage';
+import { VaultLoginPage } from './pages/VaultLoginPage';
+import { VaultDashboardPreviewPage } from './pages/VaultDashboardPreviewPage';
 import { OurWorkPage } from './pages/OurWorkPage';
 import { AboutPage } from './pages/AboutPage';
 import { TestimonialsPage } from './pages/TestimonialsPage';
@@ -40,6 +42,8 @@ export function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/vault" element={<VaultPage />} />
+            <Route path="/vault/login" element={<VaultLoginPage />} />
+            <Route path="/vault/dashboard-preview" element={<VaultDashboardPreviewPage />} />
             <Route path="/our-work" element={<OurWorkPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/testimonials" element={<TestimonialsPage />} />

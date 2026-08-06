@@ -27,6 +27,9 @@ export interface Product {
   options?: ProductOption[];
   specifications?: { label: string; value: string }[];
   features?: string[];
+  includedItems?: string[];
+  careInformation?: string;
+  digitalCompanionDescription?: string;
   leadTime?: string;
   deliveryInfo?: string;
   installationAvailable?: boolean;

@@ -222,16 +222,39 @@ export const ProductDetail: React.FC = () => {
             {product.fullDescription}
           </p>
 
-          {/* Features Bullet List */}
-          {product.features && product.features.length > 0 && (
+          {/* Digital Companion Box Callout if Vault */}
+          {product.isVault && (
+            <div className="p-4 bg-[#FEF2F0] border border-[#E54827]/30 rounded-2xl space-y-1 text-xs">
+              <span className="text-[#E54827] font-bold uppercase tracking-wider block text-[10px]">Digital Companion & Manual Recording</span>
+              <p className="text-[#18181B] font-medium leading-relaxed">
+                {product.digitalCompanionDescription}
+              </p>
+              <p className="text-[11px] text-[#71717A] italic pt-1">
+                Note: Savings records are manually entered by the owner. The Vault does not automatically detect cash inside it.
+              </p>
+            </div>
+          )}
+
+          {/* Included Items */}
+          {product.includedItems && product.includedItems.length > 0 && (
             <div className="space-y-2 text-xs text-[#18181B]">
-              <p className="font-bold uppercase tracking-wider text-[10px] text-[#E54827]">Key Features:</p>
-              {product.features.map((feat, idx) => (
-                <div key={idx} className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-[#E54827]" />
-                  <span>{feat}</span>
-                </div>
-              ))}
+              <p className="font-bold uppercase tracking-wider text-[10px] text-[#E54827]">What Is Included:</p>
+              <div className="grid grid-cols-1 gap-1.5">
+                {product.includedItems.map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#E54827]" />
+                    <span className="text-[#52525B]">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Care Information */}
+          {product.careInformation && (
+            <div className="text-xs text-[#52525B]">
+              <span className="font-bold text-[#18181B]">Care Information: </span>
+              <span>{product.careInformation}</span>
             </div>
           )}
 

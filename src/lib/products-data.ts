@@ -284,7 +284,7 @@ export const productsData: Product[] = [
   // --- THE VAULT (PHYSICAL SAVINGS BOX) ---
   {
     id: 'vault-box-01',
-    slug: 'the-aplund-vault-physical-savings-box',
+    slug: 'the-vault',
     name: 'The Aplund Vault (Physical Wooden Savings Box)',
     category: 'vault',
     categoryLabel: 'The Vault',
@@ -302,6 +302,15 @@ export const productsData: Product[] = [
     isVault: true,
     leadTime: '1 - 3 business days',
     deliveryInfo: 'In stock for immediate dispatch across Nigeria',
+    includedItems: [
+      'Handcrafted Solid Hardwood Box',
+      'Heavy Duty Brass Lock & Set of 2 Brass Keys',
+      'Velvet Interior Lining',
+      'Laser-Engraved QR Code Brass Plate',
+      'Access to Web-Based Manual Savings Companion'
+    ],
+    careInformation: 'Wipe down with a dry or softly oiled microfiber cloth. Keep away from direct water submersion.',
+    digitalCompanionDescription: 'Scan the brass QR plate on your physical Vault to open your private web manual deposit log. Define your personal target, manually record cash placed in or taken out, and track your visual progress milestone bar.',
     specifications: [
       { label: 'Material', value: '100% Solid Seasoned Oak & Teak Hardwood' },
       { label: 'Lock Hardware', value: 'Heavy Duty Polished Brass Lock & Key Set' },
@@ -337,6 +346,9 @@ export const productsData: Product[] = [
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {
+  if (slug === 'the-vault' || slug === 'the-aplund-vault-physical-savings-box') {
+    return productsData.find(p => p.isVault);
+  }
   return productsData.find(p => p.slug === slug);
 }
 

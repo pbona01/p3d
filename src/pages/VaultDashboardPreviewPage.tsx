@@ -124,31 +124,31 @@ export const VaultDashboardPreviewPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#121214] text-[#F4F4F5] font-sans py-8 px-4 md:px-8 max-w-7xl mx-auto selection:bg-[#E54827] selection:text-white">
+    <div className="min-h-screen bg-[#FAF9F6] text-[#18181B] font-sans py-8 px-4 md:px-8 max-w-7xl mx-auto selection:bg-[#E54827] selection:text-white">
       
       {/* Top Banner Badges */}
-      <div className="flex flex-wrap items-center justify-between gap-3 mb-6 bg-[#18181B] border border-[#27272A] p-4 rounded-2xl text-xs">
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-6 bg-white border border-[#E4E4E7] p-4 rounded-2xl text-xs shadow-sm">
         <div className="flex items-center gap-2">
           <span className="bg-[#E54827] text-white font-extrabold uppercase tracking-widest text-[10px] px-2.5 py-1 rounded-md">
             PRODUCT PREVIEW
           </span>
-          <span className="bg-[#27272A] text-[#10B981] border border-[#3F3F46] font-extrabold uppercase tracking-widest text-[10px] px-2.5 py-1 rounded-md flex items-center gap-1">
+          <span className="bg-[#FAF9F6] text-[#10B981] border border-[#E4E4E7] font-extrabold uppercase tracking-widest text-[10px] px-2.5 py-1 rounded-md flex items-center gap-1">
             <Sparkles className="w-3 h-3" /> EXAMPLE DATA — NOT A LIVE ACCOUNT
           </span>
         </div>
 
         <div className="flex items-center gap-3">
-          <Link to="/vault" className="text-xs text-[#A1A1AA] hover:text-white transition-colors flex items-center gap-1">
+          <Link to="/vault" className="text-xs text-[#52525B] hover:text-[#18181B] transition-colors flex items-center gap-1 font-semibold">
             <ArrowLeft className="w-3.5 h-3.5" /> Return to Vault Entry
           </Link>
         </div>
       </div>
 
       {/* Permanent Visible Clarification Note */}
-      <div className="mb-8 p-4 bg-[#18181B] border border-[#E54827]/30 rounded-2xl flex items-start gap-3 text-xs text-[#A1A1AA] leading-relaxed shadow-sm">
+      <div className="mb-8 p-4 bg-[#FEF2F0] border border-[#E54827]/20 rounded-2xl flex items-start gap-3 text-xs text-[#52525B] leading-relaxed shadow-sm animate-fadeIn">
         <Info className="w-5 h-5 text-[#E54827] shrink-0 mt-0.5" />
         <div>
-          <p className="font-bold text-white mb-0.5">Note on Demonstration Data:</p>
+          <p className="font-extrabold text-[#18181B] mb-0.5">Note on Demonstration Data:</p>
           <p>
             This preview uses example data. The future Vault companion will display amounts entered manually by the owner. It will not detect or verify the physical cash inside the box.
           </p>
@@ -175,7 +175,7 @@ export const VaultDashboardPreviewPage: React.FC = () => {
         <div className="lg:col-span-4 space-y-6">
           
           {/* Active Goal Card */}
-          <div className="bg-[#18181B] border border-[#27272A] rounded-3xl p-6 space-y-5 shadow-xl">
+          <div className="bg-white border border-[#E4E4E7] rounded-3xl p-6 space-y-5 shadow-xl">
             <div className="flex items-center justify-between">
               <span className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#E54827]">
                 Active Savings Goal
@@ -186,32 +186,32 @@ export const VaultDashboardPreviewPage: React.FC = () => {
             </div>
 
             <div>
-              <h2 className="text-xl font-black text-white">{activeGoal.name}</h2>
-              <p className="text-xs text-[#A1A1AA] mt-0.5">Target Goal: {formatNaira(activeGoal.targetAmount)}</p>
+              <h2 className="text-xl font-black text-[#18181B]">{activeGoal.name}</h2>
+              <p className="text-xs text-[#52525B] mt-0.5">Target Goal: {formatNaira(activeGoal.targetAmount)}</p>
             </div>
 
             {/* Progress Bar */}
             <div className="space-y-1.5">
-              <div className="w-full h-3 bg-[#121214] rounded-full overflow-hidden border border-[#27272A]">
+              <div className="w-full h-3 bg-[#FAF9F6] rounded-full overflow-hidden border border-[#E4E4E7]">
                 <div 
                   className="h-full bg-[#E54827] transition-all duration-500 rounded-full" 
                   style={{ width: `${progressPercent}%` }} 
                 />
               </div>
-              <div className="flex justify-between text-[11px] font-mono text-[#A1A1AA]">
+              <div className="flex justify-between text-[11px] font-mono text-[#52525B] font-medium">
                 <span>Recorded: {formatNaira(totalRecorded)}</span>
                 <span>Target: {formatNaira(activeGoal.targetAmount)}</span>
               </div>
             </div>
 
             {/* Metrics Grid */}
-            <div className="grid grid-cols-2 gap-3 pt-3 border-t border-[#27272A] text-xs">
-              <div className="p-3 bg-[#121214] border border-[#27272A] rounded-xl space-y-0.5">
-                <p className="text-[10px] text-[#A1A1AA] uppercase">Amount Recorded</p>
+            <div className="grid grid-cols-2 gap-3 pt-3 border-t border-[#E4E4E7] text-xs">
+              <div className="p-3 bg-[#FAF9F6] border border-[#E4E4E7] rounded-xl space-y-0.5">
+                <p className="text-[10px] text-[#52525B] uppercase font-bold">Amount Recorded</p>
                 <p className="font-mono font-extrabold text-[#E54827]">{formatNaira(totalRecorded)}</p>
               </div>
-              <div className="p-3 bg-[#121214] border border-[#27272A] rounded-xl space-y-0.5">
-                <p className="text-[10px] text-[#A1A1AA] uppercase">Remaining to Target</p>
+              <div className="p-3 bg-[#FAF9F6] border border-[#E4E4E7] rounded-xl space-y-0.5">
+                <p className="text-[10px] text-[#52525B] uppercase font-bold">Remaining to Target</p>
                 <p className="font-mono font-extrabold text-[#F59E0B]">{formatNaira(remainingTarget)}</p>
               </div>
             </div>
@@ -229,7 +229,7 @@ export const VaultDashboardPreviewPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleOpenModal('remove')}
-                  className="bg-[#27272A] hover:bg-[#3F3F46] text-white border border-[#3F3F46] font-extrabold py-3 px-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                  className="bg-white hover:bg-[#FAF9F6] text-[#18181B] border border-[#E4E4E7] font-extrabold py-3 px-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-sm"
                 >
                   <MinusCircle className="w-4 h-4 text-[#F59E0B]" /> Money Removed
                 </button>
@@ -238,7 +238,7 @@ export const VaultDashboardPreviewPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handleResetDemoData}
-                className="w-full bg-[#121214] hover:bg-[#18181B] text-[#A1A1AA] hover:text-white border border-[#27272A] font-bold py-2.5 rounded-xl text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                className="w-full bg-[#FAF9F6] hover:bg-white text-[#52525B] hover:text-[#18181B] border border-[#E4E4E7] font-bold py-2.5 rounded-xl text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" /> Reset Demo Data
               </button>
@@ -247,8 +247,8 @@ export const VaultDashboardPreviewPage: React.FC = () => {
           </div>
 
           {/* Goal Selector Switcher */}
-          <div className="bg-[#18181B] border border-[#27272A] rounded-3xl p-5 space-y-3">
-            <h3 className="text-xs font-bold text-white uppercase tracking-wider">
+          <div className="bg-white border border-[#E4E4E7] rounded-3xl p-5 space-y-3 shadow-md">
+            <h3 className="text-xs font-bold text-[#18181B] uppercase tracking-wider">
               Select Demo Goal
             </h3>
             <div className="space-y-2">
@@ -264,17 +264,17 @@ export const VaultDashboardPreviewPage: React.FC = () => {
                     onClick={() => setActiveGoalId(g.id)}
                     className={`w-full p-3 rounded-2xl text-left border transition-all flex items-center justify-between cursor-pointer ${
                       isSelected
-                        ? 'border-[#E54827] bg-[#E54827]/10 text-white font-bold'
-                        : 'border-[#27272A] bg-[#121214] text-[#A1A1AA] hover:border-[#3F3F46]'
+                        ? 'border-[#E54827] bg-[#E54827]/10 text-[#E54827] font-extrabold'
+                        : 'border-[#E4E4E7] bg-[#FAF9F6] text-[#52525B] hover:border-[#D4D4D8]'
                     }`}
                   >
                     <div>
-                      <p className="text-xs font-bold text-white">{g.name}</p>
-                      <p className="text-[10px] font-mono text-[#A1A1AA]">
+                      <p className="text-xs font-black text-[#18181B]">{g.name}</p>
+                      <p className="text-[10px] font-mono text-[#52525B]">
                         {formatNaira(gTotal)} / {formatNaira(g.targetAmount)} ({gPct}%)
                       </p>
                     </div>
-                    <ChevronRight className={`w-4 h-4 ${isSelected ? 'text-[#E54827]' : 'text-[#71717A]'}`} />
+                    <ChevronRight className={`w-4 h-4 ${isSelected ? 'text-[#E54827]' : 'text-[#A1A1AA]'}`} />
                   </button>
                 );
               })}
@@ -286,18 +286,18 @@ export const VaultDashboardPreviewPage: React.FC = () => {
         {/* Right Column: Manually Recorded Ledger Entries */}
         <div className="lg:col-span-8 space-y-6">
           
-          <div className="bg-[#18181B] border border-[#27272A] rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-[#27272A] pb-4">
+          <div className="bg-white border border-[#E4E4E7] rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-[#E4E4E7] pb-4">
               <div>
-                <h3 className="text-lg font-black text-white">
+                <h3 className="text-lg font-black text-[#18181B]">
                   Manually Recorded Entries Ledger
                 </h3>
-                <p className="text-xs text-[#A1A1AA]">
-                  Showing recorded cash entries for: <strong className="text-white">{activeGoal.name}</strong>
+                <p className="text-xs text-[#52525B]">
+                  Showing recorded cash entries for: <strong className="text-[#18181B]">{activeGoal.name}</strong>
                 </p>
               </div>
 
-              <span className="text-[10px] font-mono text-[#10B981] bg-[#10B981]/10 px-2.5 py-1 rounded border border-[#10B981]/20">
+              <span className="text-[10px] font-mono text-[#10B981] bg-[#10B981]/10 px-2.5 py-1 rounded border border-[#10B981]/20 font-bold">
                 {activeGoal.recordedEntries.length} Records Logged
               </span>
             </div>
@@ -305,7 +305,7 @@ export const VaultDashboardPreviewPage: React.FC = () => {
             {/* Entries Table / List */}
             <div className="space-y-3">
               {activeGoal.recordedEntries.length === 0 ? (
-                <div className="text-center py-12 text-xs text-[#A1A1AA] space-y-2">
+                <div className="text-center py-12 text-xs text-[#52525B] space-y-2">
                   <p>No manual recorded entries yet for this goal.</p>
                   <button
                     type="button"
@@ -319,10 +319,10 @@ export const VaultDashboardPreviewPage: React.FC = () => {
                 activeGoal.recordedEntries.map((entry) => (
                   <div
                     key={entry.id}
-                    className="p-4 bg-[#121214] border border-[#27272A] rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs transition-all hover:border-[#3F3F46]"
+                    className="p-4 bg-[#FAF9F6] border border-[#E4E4E7] rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs transition-all hover:border-[#D4D4D8]"
                   >
                     <div className="flex items-center gap-3">
-                      <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold ${
+                      <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-black ${
                         entry.type === 'add'
                           ? 'bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/30'
                           : 'bg-[#F59E0B]/10 text-[#F59E0B] border border-[#F59E0B]/30'
@@ -331,13 +331,13 @@ export const VaultDashboardPreviewPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <p className="font-bold text-white text-sm">{entry.note}</p>
-                        <div className="flex items-center gap-3 text-[11px] text-[#A1A1AA] mt-0.5">
+                        <p className="font-bold text-[#18181B] text-sm">{entry.note}</p>
+                        <div className="flex items-center gap-3 text-[11px] text-[#52525B] mt-0.5">
                           <span className="flex items-center gap-1">
-                            <Calendar className="w-3 h-3 text-[#71717A]" /> {entry.date}
+                            <Calendar className="w-3 h-3 text-[#A1A1AA]" /> {entry.date}
                           </span>
                           <span>•</span>
-                          <span className="capitalize text-[#A1A1AA]">
+                          <span className="capitalize font-semibold">
                             {entry.type === 'add' ? 'Money Added' : 'Money Removed'}
                           </span>
                         </div>
@@ -354,11 +354,11 @@ export const VaultDashboardPreviewPage: React.FC = () => {
               )}
             </div>
 
-            <div className="pt-4 border-t border-[#27272A] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#A1A1AA]">
-              <p>Looking to purchase a physical Vault?</p>
+            <div className="pt-4 border-t border-[#E4E4E7] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#52525B]">
+              <p className="font-medium">Looking to purchase a physical Vault?</p>
               <Link
                 to="/products/the-vault"
-                className="bg-[#E54827] hover:bg-[#C22E14] text-white font-bold px-5 py-2.5 rounded-xl transition-all"
+                className="bg-[#E54827] hover:bg-[#C22E14] text-white font-extrabold px-5 py-2.5 rounded-xl transition-all shadow-sm"
               >
                 Buy The Vault (₦35,000)
               </Link>
@@ -373,15 +373,15 @@ export const VaultDashboardPreviewPage: React.FC = () => {
       {/* --- DEMO MODAL / DIALOG FOR RECORDING ENTRIES --- */}
       {isModalOpen && (
         <div 
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn"
           onClick={() => setIsModalOpen(false)}
         >
           <div 
-            className="bg-[#18181B] border border-[#3F3F46] rounded-3xl p-6 sm:p-8 max-w-md w-full space-y-5 shadow-2xl relative"
+            className="bg-white border border-[#E4E4E7] rounded-3xl p-6 sm:p-8 max-w-md w-full space-y-5 shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-[#27272A] pb-3">
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
+            <div className="flex items-center justify-between border-b border-[#E4E4E7] pb-3">
+              <h3 className="text-base font-black text-[#18181B] flex items-center gap-2">
                 {modalType === 'add' ? (
                   <PlusCircle className="w-5 h-5 text-[#10B981]" />
                 ) : (
@@ -392,7 +392,7 @@ export const VaultDashboardPreviewPage: React.FC = () => {
               <button 
                 type="button" 
                 onClick={() => setIsModalOpen(false)}
-                className="text-[#A1A1AA] hover:text-white"
+                className="text-[#52525B] hover:text-[#18181B]"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -400,7 +400,7 @@ export const VaultDashboardPreviewPage: React.FC = () => {
 
             <form onSubmit={handleModalSubmit} className="space-y-4 text-xs">
               <div>
-                <label className="block text-[#D4D4D8] font-bold mb-1">
+                <label className="block text-[#52525B] font-bold mb-1">
                   Amount (₦)
                 </label>
                 <input
@@ -409,12 +409,12 @@ export const VaultDashboardPreviewPage: React.FC = () => {
                   value={modalAmount}
                   onChange={(e) => setModalAmount(e.target.value)}
                   placeholder="e.g. 25000"
-                  className="w-full bg-[#121214] border border-[#27272A] rounded-xl px-4 py-3 text-white placeholder-[#71717A] focus:outline-none focus:border-[#E54827]"
+                  className="w-full bg-[#FAF9F6] border border-[#E4E4E7] rounded-xl px-4 py-3 text-[#18181B] placeholder-[#A1A1AA] focus:outline-none focus:border-[#E54827]"
                 />
               </div>
 
               <div>
-                <label className="block text-[#D4D4D8] font-bold mb-1">
+                <label className="block text-[#52525B] font-bold mb-1">
                   Entry Note or Purpose
                 </label>
                 <input
@@ -423,11 +423,11 @@ export const VaultDashboardPreviewPage: React.FC = () => {
                   value={modalNote}
                   onChange={(e) => setModalNote(e.target.value)}
                   placeholder="e.g. Weekly cash savings deposit"
-                  className="w-full bg-[#121214] border border-[#27272A] rounded-xl px-4 py-3 text-white placeholder-[#71717A] focus:outline-none focus:border-[#E54827]"
+                  className="w-full bg-[#FAF9F6] border border-[#E4E4E7] rounded-xl px-4 py-3 text-[#18181B] placeholder-[#A1A1AA] focus:outline-none focus:border-[#E54827]"
                 />
               </div>
 
-              <div className="p-3 bg-[#121214] border border-[#27272A] rounded-xl text-[11px] text-[#A1A1AA]">
+              <div className="p-3 bg-[#FAF9F6] border border-[#E4E4E7] rounded-xl text-[11px] text-[#52525B] leading-relaxed">
                 <strong>Notice:</strong> This update applies to your local browser session demo preview only. No credentials or financial records are transmitted.
               </div>
 
@@ -435,7 +435,7 @@ export const VaultDashboardPreviewPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="flex-1 bg-[#27272A] text-[#A1A1AA] hover:text-white font-bold py-3 rounded-xl"
+                  className="flex-1 bg-[#FAF9F6] text-[#52525B] hover:bg-[#E4E4E7] font-bold py-3 rounded-xl border border-[#E4E4E7]"
                 >
                   Cancel
                 </button>

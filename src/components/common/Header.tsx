@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Search, ShoppingBag, ArrowRight } from 'lucide-react';
+import { Menu, X, Search, ShoppingBag, ArrowRight, Lock, KeyRound } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { SearchModal } from './SearchModal';
 
@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-[#52525B]">
+          <nav className="hidden lg:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-[#52525B]">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -61,14 +61,36 @@ export const Header: React.FC = () => {
             </NavLink>
 
             <NavLink
-              to="/vault"
+              to="/shop/mirrors"
               className={({ isActive }) =>
                 `hover:text-[#E54827] transition-colors py-1 ${
                   isActive ? 'text-[#E54827] font-bold border-b-2 border-[#E54827]' : 'text-[#52525B]'
                 }`
               }
             >
-              Vault
+              Mirrors
+            </NavLink>
+
+            <NavLink
+              to="/shop/wardrobes"
+              className={({ isActive }) =>
+                `hover:text-[#E54827] transition-colors py-1 ${
+                  isActive ? 'text-[#E54827] font-bold border-b-2 border-[#E54827]' : 'text-[#52525B]'
+                }`
+              }
+            >
+              Wardrobes
+            </NavLink>
+
+            <NavLink
+              to="/products/the-vault"
+              className={({ isActive }) =>
+                `hover:text-[#E54827] transition-colors py-1 ${
+                  isActive ? 'text-[#E54827] font-bold border-b-2 border-[#E54827]' : 'text-[#52525B]'
+                }`
+              }
+            >
+              The Vault
             </NavLink>
 
             <NavLink
@@ -92,21 +114,19 @@ export const Header: React.FC = () => {
             >
               About
             </NavLink>
-
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `hover:text-[#E54827] transition-colors py-1 ${
-                  isActive ? 'text-[#E54827] font-bold border-b-2 border-[#E54827]' : 'text-[#52525B]'
-                }`
-              }
-            >
-              Contact
-            </NavLink>
           </nav>
 
           {/* Right Header Controls */}
           <div className="flex items-center gap-3">
+            {/* MY VAULT / LOG SAVINGS Action Link */}
+            <Link
+              to="/vault"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider bg-[#FEF2F0] text-[#E54827] border border-[#E54827]/30 hover:bg-[#E54827] hover:text-white rounded-full transition-all shadow-sm cursor-pointer"
+              title="Open My Vault Companion"
+            >
+              <KeyRound className="w-3.5 h-3.5" /> MY VAULT
+            </Link>
+
             {/* Search Trigger */}
             <button
               onClick={() => setIsSearchOpen(true)}
@@ -135,7 +155,7 @@ export const Header: React.FC = () => {
             {/* Consultation CTA */}
             <Link
               to="/contact"
-              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-[#E54827] hover:bg-[#C22E14] text-white rounded-full transition-all duration-300 shadow-sm cursor-pointer"
+              className="hidden xl:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-[#E54827] hover:bg-[#C22E14] text-white rounded-full transition-all duration-300 shadow-sm cursor-pointer"
             >
               Request Quote
             </Link>
@@ -165,16 +185,40 @@ export const Header: React.FC = () => {
               <div className="text-xs text-[#E54827] uppercase tracking-widest font-bold border-b border-[#E4E4E7] pb-2">
                 Categories & Navigation
               </div>
-              <nav className="flex flex-col gap-5 text-xl font-bold text-[#18181B]">
+              <nav className="flex flex-col gap-4 text-lg font-bold text-[#18181B]">
                 <Link to="/" onClick={closeMenu} className="hover:text-[#E54827] transition-colors">
                   Home
                 </Link>
                 <Link to="/shop" onClick={closeMenu} className="hover:text-[#E54827] transition-colors">
-                  Shop
+                  Shop All
                 </Link>
-                <Link to="/vault" onClick={closeMenu} className="hover:text-[#E54827] transition-colors">
-                  Vault
+                <Link to="/shop/mirrors" onClick={closeMenu} className="hover:text-[#E54827] transition-colors">
+                  Custom Mirrors
                 </Link>
+                <Link to="/shop/wardrobes" onClick={closeMenu} className="hover:text-[#E54827] transition-colors">
+                  Fitted Wardrobes
+                </Link>
+                
+                <div className="py-2 border-y border-[#E4E4E7] my-1 space-y-2">
+                  <Link 
+                    to="/products/the-vault" 
+                    onClick={closeMenu} 
+                    className="flex items-center justify-between text-[#18181B] hover:text-[#E54827] transition-colors"
+                  >
+                    <span>The Vault Physical Box</span>
+                    <span className="text-xs bg-[#FAF9F6] text-[#52525B] px-2 py-0.5 rounded border border-[#E4E4E7]">Store</span>
+                  </Link>
+
+                  <Link 
+                    to="/vault" 
+                    onClick={closeMenu} 
+                    className="flex items-center justify-between text-[#E54827] font-black tracking-wide"
+                  >
+                    <span className="flex items-center gap-1.5"><KeyRound className="w-4 h-4" /> My Vault (Log Savings)</span>
+                    <span className="text-xs bg-[#FEF2F0] text-[#E54827] px-2 py-0.5 rounded border border-[#E54827]/30">Ledger</span>
+                  </Link>
+                </div>
+
                 <Link to="/our-work" onClick={closeMenu} className="hover:text-[#E54827] transition-colors">
                   Our Work
                 </Link>
@@ -187,15 +231,15 @@ export const Header: React.FC = () => {
               </nav>
             </div>
 
-            <div className="pt-8 border-t border-[#E4E4E7] space-y-4">
+            <div className="pt-6 border-t border-[#E4E4E7] space-y-3">
               <Link
-                to="/contact"
+                to="/vault"
                 onClick={closeMenu}
-                className="w-full bg-[#E54827] hover:bg-[#C22E14] text-white font-bold py-3.5 rounded-full text-sm flex items-center justify-center gap-2 shadow-md"
+                className="w-full bg-[#E54827] hover:bg-[#C22E14] text-white font-extrabold py-3.5 rounded-full text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
               >
-                Request Custom Design Quote <ArrowRight className="w-4 h-4" />
+                <KeyRound className="w-4 h-4" /> LOG MY SAVINGS
               </Link>
-              <p className="text-center text-xs text-[#52525B]">
+              <p className="text-center text-[11px] text-[#52525B]">
                 Lagos, Nigeria • Direct WhatsApp Support Available
               </p>
             </div>

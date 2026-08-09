@@ -14,7 +14,9 @@ import { CartPage } from './pages/CartPage';
 import { CheckoutPage } from './pages/CheckoutPage';
 import { VaultPage } from './pages/VaultPage';
 import { VaultLoginPage } from './pages/VaultLoginPage';
+import { VaultSetupPreviewPage } from './pages/VaultSetupPreviewPage';
 import { VaultDashboardPreviewPage } from './pages/VaultDashboardPreviewPage';
+import { VaultHistoryPreviewPage } from './pages/VaultHistoryPreviewPage';
 import { OurWorkPage } from './pages/OurWorkPage';
 import { AboutPage } from './pages/AboutPage';
 import { TestimonialsPage } from './pages/TestimonialsPage';
@@ -34,7 +36,7 @@ export function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/shop/mirrors" element={<Shop />} />
             <Route path="/shop/wardrobes" element={<Shop />} />
-            <Route path="/shop/vault" element={<VaultPage />} />
+            <Route path="/shop/vault" element={<Navigate to="/products/the-vault" replace />} />
             <Route path="/mirrors" element={<Shop />} />
             <Route path="/wardrobes" element={<Shop />} />
             <Route path="/product/:slug" element={<ProductDetail />} />
@@ -43,7 +45,9 @@ export function App() {
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/vault" element={<VaultPage />} />
             <Route path="/vault/login" element={<VaultLoginPage />} />
+            <Route path="/vault/setup-preview" element={<VaultSetupPreviewPage />} />
             <Route path="/vault/dashboard-preview" element={<VaultDashboardPreviewPage />} />
+            <Route path="/vault/history-preview" element={<VaultHistoryPreviewPage />} />
             <Route path="/our-work" element={<OurWorkPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/testimonials" element={<TestimonialsPage />} />

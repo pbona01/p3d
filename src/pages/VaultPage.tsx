@@ -1,577 +1,115 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
-import { 
-  Lock, 
-  ShieldCheck, 
-  Target, 
-  ArrowRight, 
-  ChevronDown, 
-  ChevronUp, 
-  Sparkles, 
-  CheckCircle2, 
-  BookOpen, 
-  TrendingUp, 
-  Info, 
-  PlusCircle, 
-  ArrowLeft,
-  Smartphone,
-  Eye,
-  Key,
-  FolderPlus
-} from 'lucide-react';
-import { productsData } from '../lib/products-data';
-import { formatNaira } from '../lib/format-utils';
+import { Lock, ArrowRight, ShoppingBag, Info, Key, Sparkles, ArrowLeft, CheckCircle2 } from 'lucide-react';
 
 export const VaultPage: React.FC = () => {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-
-  const toggleFaq = (index: number) => {
-    setOpenFaqIndex(openFaqIndex === index ? null : index);
-  };
-
-  const faqs = [
-    {
-      q: 'What is The Vault?',
-      a: 'The Vault is a handcrafted physical solid hardwood savings box created by Aplund in Lagos. It gives your cash savings a safe, elegant home in your room and comes paired with an optional digital web companion to manually log your savings progress.'
-    },
-    {
-      q: 'Does the website automatically know how much cash is inside?',
-      a: 'No. Recorded savings shown in the digital companion are based strictly on deposits and withdrawals entered manually by the owner. The physical Vault does not contain electronic sensors or automatic cash detection.'
-    },
-    {
-      q: 'Does Aplund hold my money or savings?',
-      a: 'No. Aplund never holds or manages your funds. Your physical cash remains strictly inside your personal physical Vault in your home. The digital companion is purely a visual progress tracker.'
-    },
-    {
-      q: 'Do I need an account to buy The Vault?',
-      a: 'No. Anyone can order The Vault through our standard store or directly via WhatsApp. An account will only be used to access the optional web companion for manually tracking savings.'
-    },
-    {
-      q: 'Can I use The Vault without the website?',
-      a: 'Yes, absolutely. The physical box functions completely independently with its solid wood construction, heavy brass lock, and physical keys. The digital companion is an optional tool for goal setting.'
-    },
-    {
-      q: 'Can I record money removed from the box?',
-      a: 'Yes. The digital companion allows you to record both money added and money removed so your displayed target progress stays accurate to what you manually log.'
-    }
-  ];
-
-  const exampleGoals = [
-    { name: 'Rent & Living Space', target: 800000, current: 350000, color: '#E54827' },
-    { name: 'Business Equipment & Tools', target: 500000, current: 220000, color: '#3B82F6' },
-    { name: 'Emergency Safety Fund', target: 300000, current: 150000, color: '#10B981' },
-    { name: 'New Phone / Tech Upgrade', target: 450000, current: 200000, color: '#8B5CF6' },
-    { name: 'Home Renovation & Wardrobe', target: 650000, current: 280000, color: '#F59E0B' },
-    { name: 'School Fees & Learning', target: 400000, current: 180000, color: '#EC4899' }
-  ];
-
-  const howItWorksSteps = [
-    { step: '01', title: 'Buy The Vault', desc: 'Order your handcrafted physical hardwood savings box online or via WhatsApp.' },
-    { step: '02', title: 'Receive Your Physical Box', desc: 'Delivered securely in a wooden crate to your doorstep in Lagos or nationwide.' },
-    { step: '03', title: 'Scan Unique QR Code', desc: 'Locate the laser-engraved brass plate on your box and scan it with your phone.' },
-    { step: '04', title: 'Sign In or Create Profile', desc: 'Access your private Vault space on the web companion.' },
-    { step: '05', title: 'Set a Savings Goal', desc: 'Define your milestone target amount and target date.' },
-    { step: '06', title: 'Manually Record Money Added', desc: 'Log cash deposits whenever you place notes into your physical box.' },
-    { step: '07', title: 'Follow Recorded Progress', desc: 'Watch your visual progress bar grow as you save toward your milestone.' },
-    { step: '08', title: 'Record Money Removed', desc: 'Log withdrawals whenever you take cash out for your planned goal.' }
-  ];
-
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-[#18181B] font-sans selection:bg-[#E54827] selection:text-white">
+    <div className="min-h-[85vh] bg-[#FAF9F6] text-[#18181B] font-sans flex flex-col justify-between py-10 px-4 md:px-8 max-w-3xl mx-auto selection:bg-[#E54827] selection:text-white">
       
-      {/* Top Breadcrumb Header Bar */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-6 pb-2">
-        <div className="flex items-center justify-between text-xs text-[#52525B]">
-          <div className="flex items-center gap-2">
-            <Link to="/" className="hover:text-[#18181B] transition-colors font-medium">Home</Link>
-            <span>/</span>
-            <span className="text-[#E54827] font-bold">The Vault</span>
-          </div>
-          <Link 
-            to="/shop" 
-            className="text-xs text-[#52525B] hover:text-[#18181B] transition-colors flex items-center gap-1 font-semibold"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" /> Return to Store
-          </Link>
+      {/* Top Header Navigation */}
+      <div className="flex items-center justify-between text-xs text-[#52525B] mb-8">
+        <div className="flex items-center gap-2 font-medium">
+          <Link to="/" className="hover:text-[#18181B] transition-colors">Home</Link>
+          <span>/</span>
+          <span className="text-[#E54827] font-bold">My Vault</span>
         </div>
+        <Link 
+          to="/shop" 
+          className="text-xs text-[#52525B] hover:text-[#18181B] transition-colors flex items-center gap-1 font-semibold"
+        >
+          <ArrowLeft className="w-3.5 h-3.5" /> Return to Store
+        </Link>
       </div>
 
-      {/* --- HERO SECTION --- */}
-      <section className="relative py-10 md:py-16 px-4 md:px-8 border-b border-[#E4E4E7] overflow-hidden">
-        {/* Subtle background glow */}
-        <div className="absolute top-0 right-1/3 w-[600px] h-[600px] bg-[#E54827]/5 blur-[160px] rounded-full pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto space-y-10 relative z-10">
-          
-          {/* Header Title & Intro */}
-          <div className="text-center max-w-3xl mx-auto space-y-4">
-            <motion.div 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E54827]/40 bg-[#E54827]/10 text-[#E54827] text-xs font-extrabold uppercase tracking-widest"
-            >
-              <Lock className="w-3.5 h-3.5" /> THE VAULT BY APLUND
-            </motion.div>
-
-            <motion.h1 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#18181B] leading-[1.1]"
-            >
-              A physical home for <span className="text-[#E54827]">your savings.</span>
-            </motion.h1>
-
-            <motion.p 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15 }}
-              className="text-[#52525B] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto"
-            >
-              Buy The Vault and save toward what matters. Already own one? Access your space to manually record your savings and follow your progress.
-            </motion.p>
-          </div>
-
-          {/* DUAL-PATH CHOICES (DESKTOP SPLIT & MOBILE STACKED) */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
-            
-            {/* PATH 1: BUY THE VAULT (New Customers) */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="bg-white border-2 border-[#E54827] rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative shadow-xl hover:shadow-2xl transition-all group"
-            >
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
-                  <span className="bg-[#E54827] text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">
-                    Path 01 • New Customer
-                  </span>
-                  <span className="text-sm font-mono font-bold text-[#E54827]">₦35,000</span>
-                </div>
-
-                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-[#E4E4E7] bg-[#FAF9F6]">
-                  <img
-                    src="https://i.postimg.cc/pLQ223xr/Screenshot-20260522-142556-Tik-Tok.jpg"
-                    alt="The Vault Physical Savings Box"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#18181B]/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3 text-xs text-white">
-                    <p className="font-bold">Handcrafted Solid Teak & Oak</p>
-                    <p className="text-[11px] text-white/85">Heavy Brass Lock • Velvet Interior • QR Plate</p>
-                  </div>
-                </div>
-
-                <div>
-                  <h2 className="text-2xl font-black text-[#18181B] group-hover:text-[#E54827] transition-colors">
-                    Buy The Vault
-                  </h2>
-                  <p className="text-xs text-[#52525B] mt-1 leading-relaxed">
-                    Explore the product, wood finishes, laser engraving options, dimensions, and complete order details.
-                  </p>
-                </div>
-
-                <div className="space-y-2 text-xs text-[#18181B] font-medium">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#E54827]" />
-                    <span>In stock for immediate dispatch across Nigeria</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#E54827]" />
-                    <span>Includes brass QR code plate for optional digital companion</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-6 mt-6 border-t border-[#E4E4E7] space-y-2">
-                <Link
-                  to="/products/the-vault"
-                  className="w-full bg-[#E54827] hover:bg-[#C22E14] text-white font-extrabold py-4 rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer text-center"
-                >
-                  Buy The Vault Now <ArrowRight className="w-4 h-4" />
-                </Link>
-                <p className="text-[11px] text-center text-[#52525B]">
-                  View full specs, image gallery, and add to shopping cart
-                </p>
-              </div>
-            </motion.div>
-
-            {/* PATH 2: LOG MY SAVINGS (Existing Vault Owners) */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.25 }}
-              className="bg-white border border-[#E4E4E7] rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative shadow-lg hover:shadow-2xl hover:border-[#E54827]/60 transition-all group"
-            >
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
-                  <span className="bg-[#FAF9F6] border border-[#E4E4E7] text-[#52525B] text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">
-                    Path 02 • Existing Owner
-                  </span>
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#10B981] flex items-center gap-1">
-                    <Sparkles className="w-3.5 h-3.5" /> Web Companion
-                  </span>
-                </div>
-
-                {/* Dashboard Graphic Mockup */}
-                <div className="relative aspect-[16/10] rounded-2xl border border-[#E4E4E7] bg-[#FAF9F6] p-4 flex flex-col justify-between overflow-hidden">
-                  <div className="flex justify-between items-center text-xs">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-                      <span className="font-mono text-[11px] text-[#52525B] font-bold">Vault Ledger #8492</span>
-                    </div>
-                    <span className="text-[10px] bg-[#E4E4E7] px-2 py-0.5 rounded text-[#52525B] font-semibold">Manual Ledger</span>
-                  </div>
-
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-end">
-                      <div>
-                        <p className="text-[10px] text-[#52525B] uppercase tracking-wider font-bold">Active Target</p>
-                        <p className="text-sm font-black text-[#18181B]">New Workspace Setup</p>
-                      </div>
-                      <p className="text-base font-mono font-black text-[#E54827]">37%</p>
-                    </div>
-
-                    <div className="w-full h-2.5 bg-[#E4E4E7] rounded-full overflow-hidden">
-                      <div className="h-full bg-[#E54827] rounded-full" style={{ width: '37%' }} />
-                    </div>
-
-                    <div className="flex justify-between text-[11px] font-mono text-[#52525B] pt-1">
-                      <span>Recorded: ₦185,000</span>
-                      <span>Target: ₦500,000</span>
-                    </div>
-                  </div>
-
-                  <div className="text-[10px] text-[#71717A] italic border-t border-[#E4E4E7] pt-2">
-                    Log deposits manually when cash is added to your box.
-                  </div>
-                </div>
-
-                <div>
-                  <h2 className="text-2xl font-black text-[#18181B] group-hover:text-[#E54827] transition-colors">
-                    Log My Savings
-                  </h2>
-                  <p className="text-xs text-[#52525B] mt-1 leading-relaxed">
-                    Access your private Vault space to record new deposits, track active milestones, and view your manual ledger.
-                  </p>
-                </div>
-
-                <div className="space-y-2 text-xs text-[#18181B] font-medium">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-                    <span>Sign in or test the owner access experience</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-                    <span>Interactive dashboard preview available</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-6 mt-6 border-t border-[#E4E4E7] space-y-2">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  <Link
-                    to="/vault/login"
-                    className="bg-white hover:bg-[#FAF9F6] text-[#18181B] border border-[#E4E4E7] font-extrabold py-3.5 rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all cursor-pointer text-center"
-                  >
-                    <Key className="w-3.5 h-3.5 text-[#E54827]" /> Owner Access
-                  </Link>
-                  <Link
-                    to="/vault/dashboard-preview"
-                    className="bg-[#E54827] hover:bg-[#C22E14] text-white font-extrabold py-3.5 rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all cursor-pointer text-center shadow-md"
-                  >
-                    <Eye className="w-3.5 h-3.5" /> Demo Dashboard
-                  </Link>
-                </div>
-                <p className="text-[11px] text-center text-[#52525B]">
-                  For owners who already possess a physical Vault box
-                </p>
-              </div>
-            </motion.div>
-
-          </div>
-
-          {/* VISIBLE MANUAL RECORDING CLARIFICATION */}
-          <div className="max-w-4xl mx-auto bg-[#FEF2F0] border border-[#E54827]/20 rounded-2xl p-4 sm:p-5 flex items-start gap-3 text-xs text-[#52525B] leading-relaxed shadow-sm">
-            <Info className="w-5 h-5 text-[#E54827] shrink-0 mt-0.5" />
-            <div>
-              <p className="font-extrabold text-[#18181B] text-xs mb-0.5">Important Clarification on Recorded Savings:</p>
-              <p>
-                Savings shown in the digital companion are based strictly on deposits and withdrawals entered manually by the user. The physical Vault box does not automatically detect the cash inside it, and Aplund does not hold or manage customer funds.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* --- SECTION 2: WHAT IS THE VAULT --- */}
-      <section className="py-16 px-4 md:px-8 border-b border-[#E4E4E7] max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          <div className="lg:col-span-6 space-y-6">
-            <span className="text-xs font-extrabold text-[#E54827] uppercase tracking-widest">
-              Physical Craft & Discipline
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#18181B] tracking-tight">
-              Reclaiming the power of physical discipline.
-            </h2>
-            <p className="text-[#52525B] text-sm leading-relaxed font-normal">
-              In an era of instant digital spending, saving physical cash offers unmatched psychological weight. The Aplund Vault brings tangible discipline back to personal financial goals. Each box is individually carved in our Lagos workshop from solid hardwood, fitted with heavy brass hardware, and built to last generations.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs pt-2">
-              <div className="p-4 bg-white border border-[#E4E4E7] rounded-2xl space-y-1 shadow-sm">
-                <ShieldCheck className="w-5 h-5 text-[#E54827]" />
-                <p className="font-extrabold text-[#18181B]">Solid Teak & Oak</p>
-                <p className="text-[11px] text-[#52525B]">Durable seasoned timber crafted to resist wear.</p>
-              </div>
-
-              <div className="p-4 bg-white border border-[#E4E4E7] rounded-2xl space-y-1 shadow-sm">
-                <Lock className="w-5 h-5 text-[#E54827]" />
-                <p className="font-extrabold text-[#18181B]">Heavy Brass Lock</p>
-                <p className="text-[11px] text-[#52525B]">Supplied with twin physical keys for privacy.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-6 relative">
-            <div className="relative rounded-3xl overflow-hidden border border-[#E4E4E7] bg-white p-3 shadow-xl aspect-[4/3]">
-              <img
-                src="https://i.postimg.cc/vB2PqNnm/a5164097-dd7b-4477-ae33-c34845983535.jpg"
-                alt="Aplund Craft Workshop"
-                className="w-full h-full object-cover rounded-2xl"
-              />
-              <div className="absolute inset-x-7 bottom-7 p-4 bg-white/95 backdrop-blur-md rounded-2xl border border-[#E4E4E7] text-xs">
-                <span className="text-[#E54827] font-extrabold uppercase tracking-wider block text-[10px]">Atelier Quality</span>
-                <p className="text-[#18181B] font-extrabold mt-0.5">Handcrafted in Lagos, Nigeria</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* --- SECTION 3: HOW PHYSICAL SAVING WORKS (8 STEPS) --- */}
-      <section className="py-16 px-4 md:px-8 border-b border-[#E4E4E7] bg-white">
-        <div className="max-w-7xl mx-auto space-y-12">
-          
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-extrabold text-[#E54827] uppercase tracking-widest">
-              Simple Step-by-Step Flow
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#18181B]">
-              How The Vault Experience Works
-            </h2>
-            <p className="text-xs text-[#52525B]">
-              From receiving your physical box to tracking your manual progress on your smartphone.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {howItWorksSteps.map((item, idx) => (
-              <div key={idx} className="p-6 bg-[#FAF9F6] border border-[#E4E4E7] rounded-2xl space-y-3 shadow-sm hover:border-[#E54827]/50 transition-colors">
-                <span className="text-xl font-black text-[#E54827] font-mono block">
-                  {item.step}
-                </span>
-                <h3 className="font-extrabold text-[#18181B] text-sm">
-                  {item.title}
-                </h3>
-                <p className="text-[#52525B] text-xs leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* --- SECTION 4: DASHBOARD PREVIEW CALLOUT BANNER --- */}
-      <section className="py-16 px-4 md:px-8 border-b border-[#E4E4E7] max-w-7xl mx-auto">
-        <div className="bg-gradient-to-r from-white via-[#FAF9F6] to-white border border-[#E4E4E7] rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="lg:col-span-7 space-y-4">
-              <span className="bg-[#E54827]/10 text-[#E54827] border border-[#E54827]/20 text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full inline-block">
-                Interactive Companion Demonstration
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-[#18181B]">
-                Experience the Digital Savings Companion
-              </h2>
-              <p className="text-xs sm:text-sm text-[#52525B] leading-relaxed max-w-xl">
-                Curious how the web deposit tracker works? Explore our interactive demonstration dashboard using example data. Test logging manual cash entries, defining milestone targets, and viewing progress indicators.
-              </p>
-              <div className="pt-2 flex flex-wrap items-center gap-3">
-                <Link
-                  to="/vault/dashboard-preview"
-                  className="bg-[#E54827] hover:bg-[#C22E14] text-white font-extrabold px-6 py-3.5 rounded-full text-xs uppercase tracking-wider flex items-center gap-2 shadow-md transition-all"
-                >
-                  <Eye className="w-4 h-4" /> Open Interactive Demo
-                </Link>
-                <Link
-                  to="/vault/login"
-                  className="bg-white hover:bg-[#FAF9F6] text-[#18181B] border border-[#E4E4E7] font-bold px-6 py-3.5 rounded-full text-xs uppercase tracking-wider transition-all shadow-sm"
-                >
-                  View Owner Sign-In Preview
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 bg-white border border-[#E4E4E7] rounded-2xl p-5 space-y-3 shadow-sm">
-              <div className="flex justify-between items-center text-xs border-b border-[#E4E4E7] pb-2">
-                <span className="font-extrabold text-[#18181B] text-xs">Example Savings Milestone</span>
-                <span className="text-[#10B981] font-mono font-bold text-[11px] bg-[#10B981]/10 px-2 py-0.5 rounded">DEMO DATA</span>
-              </div>
-              <div className="space-y-1">
-                <div className="flex justify-between text-xs text-[#52525B]">
-                  <span className="font-medium">Goal: Custom Drip Wardrobe</span>
-                  <span className="font-mono text-[#E54827] font-bold">52%</span>
-                </div>
-                <div className="w-full h-3 bg-[#FAF9F6] border border-[#E4E4E7] rounded-full overflow-hidden">
-                  <div className="h-full bg-[#E54827]" style={{ width: '52%' }} />
-                </div>
-                <div className="flex justify-between text-[10px] font-mono text-[#71717A]">
-                  <span>Recorded: ₦338,000</span>
-                  <span>Target: ₦650,000</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* --- SECTION 5: EXAMPLE SAVINGS GOALS --- */}
-      <section className="py-16 px-4 md:px-8 border-b border-[#E4E4E7] max-w-7xl mx-auto">
-        <div className="space-y-10">
-          
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-extrabold text-[#E54827] uppercase tracking-widest">
-              Tangible Goals
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#18181B]">
-              Save Toward What Truly Matters
-            </h2>
-            <p className="text-xs text-[#52525B]">
-              Define clear personal targets and manually record your cash progress step by step.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {exampleGoals.map((goal, idx) => {
-              const pct = Math.round((goal.current / goal.target) * 100);
-              return (
-                <div key={idx} className="p-6 bg-white border border-[#E4E4E7] rounded-2xl space-y-4 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="flex justify-between items-center">
-                    <h3 className="font-extrabold text-[#18181B] text-sm">{goal.name}</h3>
-                    <span className="text-xs font-mono font-bold text-[#E54827]">{pct}%</span>
-                  </div>
-
-                  <div className="w-full h-2 bg-[#FAF9F6] border border-[#E4E4E7] rounded-full overflow-hidden">
-                    <div className="h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: goal.color }} />
-                  </div>
-
-                  <div className="flex justify-between text-xs font-mono text-[#52525B]">
-                    <span>Recorded: {formatNaira(goal.current)}</span>
-                    <span>Target: {formatNaira(goal.target)}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* --- SECTION 6: FREQUENTLY ASKED QUESTIONS --- */}
-      <section className="py-16 px-4 md:px-8 border-b border-[#E4E4E7] max-w-4xl mx-auto space-y-10">
+      {/* Main Entry Card */}
+      <div className="my-auto space-y-8 text-center">
         
-        <div className="text-center space-y-3">
-          <span className="text-xs font-extrabold text-[#E54827] uppercase tracking-widest">
-            Clear Answers
+        {/* Badge & Icon */}
+        <div className="inline-flex flex-col items-center justify-center space-y-3">
+          <div className="w-16 h-16 rounded-2xl bg-[#E54827]/10 border border-[#E54827]/30 text-[#E54827] flex items-center justify-center shadow-sm">
+            <Lock className="w-8 h-8" />
+          </div>
+          <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#E54827] bg-[#E54827]/10 border border-[#E54827]/20 px-3.5 py-1 rounded-full">
+            THE VAULT BY APLUND
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#18181B]">
-            Frequently Asked Questions
-          </h2>
         </div>
 
-        <div className="space-y-4">
-          {faqs.map((faq, idx) => {
-            const isOpen = openFaqIndex === idx;
-            return (
-              <div 
-                key={idx} 
-                className="bg-white border border-[#E4E4E7] rounded-2xl overflow-hidden shadow-sm transition-all"
-              >
-                <button
-                  type="button"
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full p-5 text-left flex justify-between items-center text-sm font-bold text-[#18181B] hover:text-[#E54827] transition-colors cursor-pointer"
-                >
-                  <span>{faq.q}</span>
-                  {isOpen ? (
-                    <ChevronUp className="w-5 h-5 text-[#E54827] shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-[#52525B] shrink-0" />
-                  )}
-                </button>
-
-                {isOpen && (
-                  <div className="px-5 pb-5 text-xs text-[#52525B] leading-relaxed border-t border-[#E4E4E7] pt-4">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-      </section>
-
-      {/* --- SECTION 7: FINAL DUAL CTA --- */}
-      <section className="py-16 px-4 md:px-8 max-w-5xl mx-auto text-center space-y-8">
-        
-        <div className="space-y-3">
-          <span className="text-xs font-extrabold text-[#E54827] uppercase tracking-widest">
-            Start Your Journey
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-[#18181B] tracking-tight">
-            Ready to bring discipline to your savings?
-          </h2>
-          <p className="text-xs sm:text-sm text-[#52525B] max-w-md mx-auto">
-            Choose whether to explore and purchase the physical Vault or test the owner companion experience.
+        {/* Headline */}
+        <div className="space-y-3 max-w-lg mx-auto">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#18181B] leading-tight">
+            Your savings. Your goal. <span className="text-[#E54827]">Your progress.</span>
+          </h1>
+          <p className="text-xs sm:text-sm text-[#52525B] leading-relaxed">
+            The personal savings companion for owners of The Aplund Vault physical box.
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <Link
-            to="/products/the-vault"
-            className="w-full sm:w-auto bg-[#E54827] hover:bg-[#C22E14] text-white font-extrabold px-8 py-4 rounded-full text-xs uppercase tracking-wider shadow-lg transition-all text-center"
-          >
-            Buy The Vault (₦35,000)
-          </Link>
+        {/* Actions Box */}
+        <div className="bg-white border border-[#E4E4E7] rounded-3xl p-6 sm:p-8 shadow-xl max-w-md mx-auto space-y-5">
+          
+          <div className="space-y-3">
+            <p className="text-xs font-extrabold text-[#18181B] uppercase tracking-wider">
+              Already have a Vault?
+            </p>
+            <Link
+              to="/vault/login"
+              className="w-full bg-[#E54827] hover:bg-[#C22E14] text-white font-extrabold py-4 rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer text-center"
+            >
+              <Key className="w-4 h-4" /> LOG MY SAVINGS
+            </Link>
+          </div>
 
-          <Link
-            to="/vault/login"
-            className="w-full sm:w-auto bg-white hover:bg-[#FAF9F6] text-[#18181B] border border-[#E4E4E7] font-extrabold px-8 py-4 rounded-full text-xs uppercase tracking-wider transition-all text-center shadow-sm"
-          >
-            Log My Savings (Owner Access)
-          </Link>
+          <div className="relative flex items-center justify-center my-2">
+            <div className="border-t border-[#E4E4E7] w-full" />
+            <span className="bg-white px-3 text-[10px] uppercase font-bold text-[#A1A1AA] absolute">
+              OR
+            </span>
+          </div>
+
+          <div className="space-y-3 pt-1">
+            <p className="text-xs font-bold text-[#52525B]">
+              Don’t have a Vault yet?
+            </p>
+            <Link
+              to="/products/the-vault"
+              className="w-full bg-white hover:bg-[#FAF9F6] text-[#18181B] border border-[#E4E4E7] font-extrabold py-3.5 rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm cursor-pointer text-center"
+            >
+              <ShoppingBag className="w-4 h-4 text-[#E54827]" /> BUY THE VAULT
+            </Link>
+          </div>
+
         </div>
 
-        <div className="pt-4">
-          <Link 
-            to="/shop" 
-            className="text-xs text-[#52525B] hover:text-[#18181B] transition-colors underline font-medium"
-          >
-            Explore Full Aplund Store Collection
-          </Link>
+        {/* Simple 3-step usage summary */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-xl mx-auto text-left pt-2">
+          <div className="bg-white border border-[#E4E4E7] p-3.5 rounded-2xl space-y-1 shadow-sm">
+            <div className="text-[#E54827] font-black text-xs">01</div>
+            <p className="font-bold text-[#18181B] text-xs">Scan QR Code</p>
+            <p className="text-[11px] text-[#52525B]">Locate the brass plate on your physical box.</p>
+          </div>
+
+          <div className="bg-white border border-[#E4E4E7] p-3.5 rounded-2xl space-y-1 shadow-sm">
+            <div className="text-[#E54827] font-black text-xs">02</div>
+            <p className="font-bold text-[#18181B] text-xs">Sign In</p>
+            <p className="text-[11px] text-[#52525B]">Open your private recorded ledger companion.</p>
+          </div>
+
+          <div className="bg-white border border-[#E4E4E7] p-3.5 rounded-2xl space-y-1 shadow-sm">
+            <div className="text-[#E54827] font-black text-xs">03</div>
+            <p className="font-bold text-[#18181B] text-xs">Log Money Added</p>
+            <p className="text-[11px] text-[#52525B]">Record cash placed inside in seconds.</p>
+          </div>
         </div>
 
-      </section>
+      </div>
+
+      {/* Footer Clarification Disclaimer */}
+      <div className="mt-10 max-w-lg mx-auto bg-[#FEF2F0] border border-[#E54827]/20 rounded-2xl p-4 flex items-start gap-3 text-xs text-[#52525B] leading-relaxed text-left shadow-sm">
+        <Info className="w-4 h-4 text-[#E54827] shrink-0 mt-0.5" />
+        <p className="text-[11px]">
+          Recorded savings are based on the amounts you enter manually. The Vault does not automatically detect or verify the cash inside it.
+        </p>
+      </div>
 
     </div>
   );

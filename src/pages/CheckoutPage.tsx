@@ -257,6 +257,8 @@ export const CheckoutPage: React.FC = () => {
                         src={item.image}
                         alt={item.productName}
                         className="w-12 h-12 object-cover rounded-lg border border-[#E4E4E7] flex-shrink-0"
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div className="min-w-0">
                         <p className="font-bold text-[#18181B] truncate">{item.productName}</p>

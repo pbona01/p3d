@@ -106,6 +106,8 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
                       src={product.images[0]}
                       alt={product.name}
                       className="w-14 h-14 object-cover rounded-lg border border-[#E4E4E7]"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">

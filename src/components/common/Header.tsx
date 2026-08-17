@@ -29,14 +29,16 @@ export const Header: React.FC = () => {
               alt="Aplund Logo"
               className="w-9 h-9 md:w-10 md:h-10 rounded-full object-cover border border-[#E54827]/30 group-hover:scale-105 transition-transform"
               referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
             />
             <span className="font-sans font-black text-xl tracking-tight text-[#18181B] group-hover:text-[#E54827] transition-colors">
               APLUND
             </span>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-[#52525B]">
+          {/* Desktop Navigation Links - Home, Shop, Vault, Our Work, About */}
+          <nav className="hidden lg:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-[#52525B]">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -50,7 +52,6 @@ export const Header: React.FC = () => {
 
             <NavLink
               to="/shop"
-              end
               className={({ isActive }) =>
                 `hover:text-[#E54827] transition-colors py-1 ${
                   isActive ? 'text-[#E54827] font-bold border-b-2 border-[#E54827]' : 'text-[#52525B]'
@@ -61,36 +62,14 @@ export const Header: React.FC = () => {
             </NavLink>
 
             <NavLink
-              to="/shop/mirrors"
+              to="/vault"
               className={({ isActive }) =>
                 `hover:text-[#E54827] transition-colors py-1 ${
                   isActive ? 'text-[#E54827] font-bold border-b-2 border-[#E54827]' : 'text-[#52525B]'
                 }`
               }
             >
-              Mirrors
-            </NavLink>
-
-            <NavLink
-              to="/shop/wardrobes"
-              className={({ isActive }) =>
-                `hover:text-[#E54827] transition-colors py-1 ${
-                  isActive ? 'text-[#E54827] font-bold border-b-2 border-[#E54827]' : 'text-[#52525B]'
-                }`
-              }
-            >
-              Wardrobes
-            </NavLink>
-
-            <NavLink
-              to="/products/the-vault"
-              className={({ isActive }) =>
-                `hover:text-[#E54827] transition-colors py-1 ${
-                  isActive ? 'text-[#E54827] font-bold border-b-2 border-[#E54827]' : 'text-[#52525B]'
-                }`
-              }
-            >
-              The Vault
+              Vault
             </NavLink>
 
             <NavLink

@@ -75,9 +75,11 @@ export const Home: React.FC = () => {
             <div className="relative rounded-2xl overflow-hidden border border-[#E4E4E7] shadow-sm bg-white p-2">
               <div className="relative aspect-[4/3] sm:aspect-[16/11] rounded-xl overflow-hidden">
                 <img
-                  src="https://i.postimg.cc/vB2PqNnm/a5164097-dd7b-4477-ae33-c34845983535.jpg"
-                  alt="Aura Mirror by Aplund"
+                  src="https://i.postimg.cc/sgt79Q5s/goku-mirror.jpg"
+                  alt="The Ultimate Aura Mirror by Aplund"
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 
@@ -124,6 +126,8 @@ export const Home: React.FC = () => {
                 src="https://i.postimg.cc/d04n3x4h/f8e41194-bf0b-4826-8a41-4076e72b6095.jpg"
                 alt="Custom Mirrors Collection"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="p-6 space-y-2">
@@ -148,6 +152,8 @@ export const Home: React.FC = () => {
                 src="https://i.postimg.cc/pLQ223xr/Screenshot-20260522-142556-Tik-Tok.jpg"
                 alt="Custom Wardrobes Collection"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="p-6 space-y-2">
@@ -172,6 +178,8 @@ export const Home: React.FC = () => {
                 src="https://i.postimg.cc/pLQ223xr/Screenshot-20260522-142556-Tik-Tok.jpg"
                 alt="The Vault Physical Savings Box"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
               />
               <span className="absolute top-3 left-3 bg-[#E54827] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">
                 Signature Product

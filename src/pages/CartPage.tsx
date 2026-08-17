@@ -58,6 +58,8 @@ export const CartPage: React.FC = () => {
                   src={item.image}
                   alt={item.productName}
                   className="w-20 h-20 object-cover rounded-xl border border-white/10 bg-black/40 flex-shrink-0"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="min-w-0 flex-1">
                   <span className="text-[10px] text-[#c5a880] font-mono uppercase font-bold">

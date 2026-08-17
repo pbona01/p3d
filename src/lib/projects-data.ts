@@ -13,13 +13,16 @@ export const projects: Project[] = [
   {
     title: "The Ultimate Aura Mirror",
     desc: "A custom full-length interactive lighting piece crafted with dynamic aura-glow projection.",
-    img: "https://i.postimg.cc/vB2PqNnm/a5164097-dd7b-4477-ae33-c34845983535.jpg",
+    img: "https://i.postimg.cc/sgt79Q5s/goku-mirror.jpg",
     category: "Mirrors",
     story: "Individually shaped and polished in our Lagos workshop, our premium Aura Mirror creates the ultimate aesthetic vibe with halo illumination and high-grade glass.",
     images: [
-      "https://i.postimg.cc/vB2PqNnm/a5164097-dd7b-4477-ae33-c34845983535.jpg",
-      "https://i.postimg.cc/d04n3x4h/f8e41194-bf0b-4826-8a41-4076e72b6095.jpg",
-      "https://i.postimg.cc/N0w5D1Gv/Screenshot-20260522-142444-Tik-Tok.jpg"
+      "https://i.postimg.cc/sgt79Q5s/goku-mirror.jpg",
+      "https://i.postimg.cc/4xKp9b70/Whats-App-Image-2026-08-09-at-9-14-44-AM.jpg",
+      "https://i.postimg.cc/xdMHsfPq/Whats-App-Image-2026-08-09-at-9-14-45-AM.jpg",
+      "https://i.postimg.cc/DzLsCvck/bugs-bunny.jpg",
+      "https://i.postimg.cc/DwtLdJ1K/goats.jpg",
+      "https://i.postimg.cc/0yLDdM7k/goats-2.jpg"
     ]
   },
   {

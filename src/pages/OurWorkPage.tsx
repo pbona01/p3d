@@ -56,6 +56,7 @@ export const OurWorkPage: React.FC = () => {
                 alt={proj.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
+                decoding="async"
               />
               <span className="absolute top-3 left-3 bg-black/70 backdrop-blur-md text-[#c5a880] border border-[#c5a880]/30 text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">
                 {proj.category}

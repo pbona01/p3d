@@ -152,6 +152,8 @@ export const ProductDetail: React.FC = () => {
               src={product.images[activeImageIndex] || product.images[0]}
               alt={product.name}
               className="w-full h-full object-cover transition-all duration-300"
+              loading="lazy"
+              decoding="async"
             />
             {product.customMade && (
               <span className="absolute top-4 left-4 bg-[#18181B]/80 backdrop-blur-md text-white border border-white/20 text-xs uppercase tracking-wider font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
@@ -173,7 +175,13 @@ export const ProductDetail: React.FC = () => {
                       : 'border-[#E4E4E7] opacity-60 hover:opacity-100'
                   }`}
                 >
-                  <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+                  <img
+                    src={img}
+                    alt={`Thumbnail ${idx + 1}`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </button>
               ))}
             </div>

@@ -90,7 +90,9 @@ export const Portfolio: React.FC = () => {
                   src={project.img} 
                   alt={`${project.title} - Custom handcrafted piece`} 
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 z-0" 
-                  referrerPolicy="no-referrer" 
+                  referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10"></div>
                 <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10"></div>
@@ -153,6 +155,8 @@ export const Portfolio: React.FC = () => {
                       alt={`${selectedProject.title} detail view ${activeModalImageIdx + 1}`} 
                       className="w-full h-full object-cover" 
                       referrerPolicy="no-referrer"
+                      loading="lazy"
+                      decoding="async"
                     />
 
                     {/* Left/Right Buttons */}
@@ -186,7 +190,14 @@ export const Portfolio: React.FC = () => {
                           activeModalImageIdx === idx ? "border-gold scale-105" : "border-white/10 opacity-60 hover:opacity-100"
                         }`}
                       >
-                        <img src={thumb} alt="thumbnail" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                        <img
+                          src={thumb}
+                          alt="thumbnail"
+                          className="w-full h-full object-cover"
+                          referrerPolicy="no-referrer"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </button>
                     ))}
                   </div>

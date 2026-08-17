@@ -63,6 +63,8 @@ export const Footer: React.FC = () => {
               alt="Aplund Company Logo"
               className="w-10 h-10 rounded-full object-cover border border-[#E4E4E7]"
               referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
             />
             <h3 className="font-sans font-black text-xl tracking-wider text-[#18181B]">APLUND</h3>
           </div>

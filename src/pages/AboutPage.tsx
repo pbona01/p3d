@@ -40,6 +40,8 @@ export const AboutPage: React.FC = () => {
             src="https://i.postimg.cc/vB2PqNnm/a5164097-dd7b-4477-ae33-c34845983535.jpg"
             alt="Aplund Craft Workshop"
             className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           <div className="absolute bottom-6 left-6 right-6 p-4 bg-white/90 backdrop-blur-md rounded-2xl border border-[#E4E4E7] text-xs shadow-md">
